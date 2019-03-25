@@ -42,10 +42,13 @@ public class ShiroConfiguration
         //配置登录的url和登录成功的url
         bean.setLoginUrl("/login");
         bean.setSuccessUrl("/index");
+        
         //配置访问权限
         LinkedHashMap<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
+        filterChainDefinitionMap.put("/logout", "logout");
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/static/**", "anon");
+        filterChainDefinitionMap.put("/error/**", "anon");
         filterChainDefinitionMap.put("/*", "authc");//表示需要认证才可以访问
         filterChainDefinitionMap.put("/**", "authc");//表示需要认证才可以访问
         filterChainDefinitionMap.put("/*.*", "authc");

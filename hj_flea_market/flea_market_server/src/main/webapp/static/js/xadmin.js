@@ -369,10 +369,10 @@ function x_admin_show(title,url,w,h){
         url="404.html";
     };
     if (w == null || w == '') {
-        w=($(window).width()*0.6);
+        w=($(window).width()*0.618);
     };
     if (h == null || h == '') {
-        h=($(window).height() - 200);
+        h=($(window).height() - 100);
     };
     layer.open({
         type: 2,

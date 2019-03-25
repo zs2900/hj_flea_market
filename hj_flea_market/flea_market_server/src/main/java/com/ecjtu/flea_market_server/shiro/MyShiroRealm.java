@@ -40,14 +40,6 @@ public class MyShiroRealm extends AuthorizingRealm
     @Autowired
     private UserService userService;
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param arg0
-     * @return
-     * @see [类、类#方法、类#成员]
-     */
-    
     /**
      * 
      * <一句话功能简述>

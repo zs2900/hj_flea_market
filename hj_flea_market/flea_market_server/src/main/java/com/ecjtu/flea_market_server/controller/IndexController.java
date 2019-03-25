@@ -45,4 +45,9 @@ public class IndexController
         return "member-add";
     }
     
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String Logout()
+    {
+        return "login";
+    }
 }

@@ -54,7 +54,7 @@ public class AdminLoginServiceImpl implements AdminLoginService
         try
         {
             subject.login(token); //完成登录
-            return new AdminLoginResp("/hj_flea_market/adminPage");
+            return new AdminLoginResp("/hj_flea_market/adminPage", req.getUserName());
         }
         catch (Exception e)
         {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.flea_market_server.dao.DisplayMapper">
+	
+	<insert id="addDisplay" parameterType="com.ecjtu.flea_market_server.controller.req.DisplayManagerReq">
+		insert 
+		into 
+		display
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="dId != null">d_id,</if>
+			<if test="gId != null">g_id,</if>
+			<if test="dImg != null and dImg != ''">d_img,</if>
+			<if test="dAddTime == null">d_addTime,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="dId != null">#{dId},</if>
+			<if test="gId != null">#{gId},</if>
+			<if test="dImg != null and dImg != ''">#{dImg},</if>
+			<if test="dAddTime == null">sysdate(),</if>
+		</trim>
+	</insert>
+</mapper>

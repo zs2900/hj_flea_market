@@ -44,7 +44,7 @@ function SaleGoodsPass(flag){
 		contentType: "application/json;charset=utf-8",
 		success: function(result){
 			if(result.retCode == 0){
-				parent.layer.msg("操作成功！",{time:300});
+				layer.msg("操作成功！",{time:300});
 				x_admin_close();
 				x_admin_father_reload();
 			}else {

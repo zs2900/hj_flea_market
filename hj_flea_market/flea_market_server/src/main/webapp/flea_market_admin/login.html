@@ -48,7 +48,7 @@
                   	contentType: "application/json; charset=utf-8",
                   	success: function(result){
                   		if(result.retCode == 0){
-                  			location.href = result.redirectUrl;
+                  			location.href = result.redirectUrl + "?aName=" + result.adminName;
                   		}else {
                   			layer.msg(result.retMsg);
                   		}

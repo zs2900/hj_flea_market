@@ -25,6 +25,8 @@ public class AdminLoginResp extends BaseResponse
 {
     private String redirectUrl;
     
+    private String adminName;
+    
     /** 
      * <默认构造函数>
      */
@@ -35,9 +37,26 @@ public class AdminLoginResp extends BaseResponse
     /** 
      * <默认构造函数>
      */
-    public AdminLoginResp(String redirectUrl)
+    public AdminLoginResp(String redirectUrl, String adminName)
     {
         this.redirectUrl = redirectUrl;
+        this.adminName = adminName;
+    }
+    
+    /**
+     * @return 返回 adminName
+     */
+    public String getAdminName()
+    {
+        return adminName;
+    }
+    
+    /**
+     * @param 对adminName进行赋值
+     */
+    public void setAdminName(String adminName)
+    {
+        this.adminName = adminName;
     }
     
     /**
