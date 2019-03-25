@@ -92,7 +92,7 @@ public class InterfaceServiceLog
     }
     
     //扫描父类是否被打上标签,或者父类中的这个方法是否被打伤标签
-    private boolean isTagged(Class invokeClass, String signatureName)
+    private boolean isTagged(Class<?> invokeClass, String signatureName)
     {
         if (isTaggedInInterfaceOf(invokeClass, signatureName))
         {
@@ -118,7 +118,7 @@ public class InterfaceServiceLog
     }
     
     //方法名为signatureName的方法tagged有两种情况:方法本身被taged或者方法所在的类被taged
-    private boolean isTaggedInClassOf(Class cas, String signatureName)
+    private boolean isTaggedInClassOf(Class<?> cas, String signatureName)
     {
         return Lists.newArrayList(cas.getDeclaredMethods())
             .stream()
@@ -126,7 +126,7 @@ public class InterfaceServiceLog
                 || isMethodWithName(method, signatureName) && isClassTagged(cas));
     }
     
-    private boolean isClassTagged(Class invokeClass)
+    private boolean isClassTagged(Class<?> invokeClass)
     {
         return invokeClass.getAnnotation(AOPLogAnnotation.class) != null;
     }

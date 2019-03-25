@@ -13,7 +13,6 @@ package com.ecjtu.flea_market_server.service.serviceImpl;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecjtu.common.enums.ResultCode;
@@ -21,7 +20,6 @@ import com.ecjtu.common.exception.InnerException;
 import com.ecjtu.common.validator.Validator;
 import com.ecjtu.flea_market_server.controller.req.AdminLoginReq;
 import com.ecjtu.flea_market_server.controller.resp.AdminLoginResp;
-import com.ecjtu.flea_market_server.dao.AdminMapper;
 import com.ecjtu.flea_market_server.service.AdminLoginService;
 
 /**
@@ -36,9 +34,6 @@ import com.ecjtu.flea_market_server.service.AdminLoginService;
 @Service
 public class AdminLoginServiceImpl implements AdminLoginService
 {
-    @Autowired
-    private AdminMapper adminMapper;
-    
     /** 
      * <一句话功能简述>
      * <功能详细描述>

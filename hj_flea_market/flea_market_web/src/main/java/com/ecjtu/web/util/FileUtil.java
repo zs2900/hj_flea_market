@@ -12,11 +12,11 @@ package com.ecjtu.web.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * <一句话功能简述>
@@ -147,13 +147,16 @@ public class FileUtil
      * 根据制定文件的文件头判断其文件类型
      * @param filePaht
      * @return
+     * @throws Exception 
      */
     public static String getFileType(File file)
+        throws Exception
     {
         String res = null;
+        FileInputStream is = null;
         try
         {
-            FileInputStream is = new FileInputStream(file);
+            is = new FileInputStream(file);
             byte[] b = new byte[10];
             is.read(b, 0, b.length);
             String fileCode = bytesToHexString(b);
@@ -173,20 +176,90 @@ public class FileUtil
                 }
             }
         }
-        catch (FileNotFoundException e)
+        finally
         {
-            e.printStackTrace();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+            if (is != null)
+            {
+                is.close();
+            }
         }
         return res;
     }
     
+    public static String getFileTypeM(MultipartFile file)
+        throws Exception
+    {
+        String res = null;
+        FileInputStream is = null;
+        try
+        {
+            is = (FileInputStream)file.getInputStream();
+            byte[] b = new byte[10];
+            is.read(b, 0, b.length);
+            String fileCode = bytesToHexString(b);
+            
+            System.out.println(fileCode);
+            
+            //这种方法在字典的头代码不够位数的时候可以用但是速度相对慢一点
+            Iterator<String> keyIter = FILE_TYPE_MAP.keySet().iterator();
+            while (keyIter.hasNext())
+            {
+                String key = keyIter.next();
+                if (key.toLowerCase().startsWith(fileCode.toLowerCase())
+                    || fileCode.toLowerCase().startsWith(key.toLowerCase()))
+                {
+                    res = FILE_TYPE_MAP.get(key);
+                    break;
+                }
+            }
+        }
+        finally
+        {
+            if (is != null)
+            {
+                is.close();
+            }
+        }
+        return res;
+    }
+    
+    /**
+     * 判断文件类型是否为图片
+     * <一句话功能简述>
+     * <功能详细描述>
+     * @param file
+     * @return
+     * @throws Exception
+     * @see [类、类#方法、类#成员]
+     */
     public static boolean isPicture(File file)
+        throws Exception
     {
         String fileType = getFileType(file);
+        if ("jpg".equalsIgnoreCase(fileType) || "png".equalsIgnoreCase(fileType) || "gif".equalsIgnoreCase(fileType)
+            || "bmp".equalsIgnoreCase(fileType))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    /**
+     * 
+     * <一句话功能简述>
+     * <功能详细描述>
+     * @param file
+     * @return
+     * @throws Exception 
+     * @see [类、类#方法、类#成员]
+     */
+    public static boolean isPictureM(MultipartFile file)
+        throws Exception
+    {
+        String fileType = getFileTypeM(file);
         if ("jpg".equalsIgnoreCase(fileType) || "png".equalsIgnoreCase(fileType) || "gif".equalsIgnoreCase(fileType)
             || "bmp".equalsIgnoreCase(fileType))
         {

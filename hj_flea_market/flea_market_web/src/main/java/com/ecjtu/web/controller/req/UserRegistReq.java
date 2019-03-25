@@ -13,6 +13,7 @@ package com.ecjtu.web.controller.req;
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.BaseRequest;
 import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
@@ -37,6 +38,7 @@ public class UserRegistReq extends BaseRequest
     /**
      * @return 返回 userName
      */
+    @Param(canBlank = false, regex = "^[\\w]{4,10}$")
     public String getUserName()
     {
         return userName;
@@ -53,6 +55,7 @@ public class UserRegistReq extends BaseRequest
     /**
      * @return 返回 userEmail
      */
+    @Param(canBlank = false, regex = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$")
     public String getUserEmail()
     {
         return userEmail;
@@ -69,6 +72,7 @@ public class UserRegistReq extends BaseRequest
     /**
      * @return 返回 userPassword
      */
+    @Param(canBlank = false, regex = "^[a-z0-9_-]{6,12}$")
     public String getUserPassword()
     {
         return userPassword;
@@ -85,6 +89,7 @@ public class UserRegistReq extends BaseRequest
     /**
      * @return 返回 userEmailCode
      */
+    @Param(canBlank = false, regex = "^[0-9a-zA-Z]{4}$")
     public String getUserEmailCode()
     {
         return userEmailCode;

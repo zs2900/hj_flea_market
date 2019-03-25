@@ -23,7 +23,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.ecjtu.common.enums.ResultCode;
 import com.ecjtu.common.util.MD5Util;
-import com.ecjtu.common.validator.annotations.AOPLogAnnotation;
 import com.ecjtu.web.controller.resp.ImageUploadResp;
 import com.ecjtu.web.util.TimeUtil;
 
@@ -36,7 +35,6 @@ import com.ecjtu.web.util.TimeUtil;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-@AOPLogAnnotation
 @RestController
 public class ImageUploadController
 {
@@ -52,6 +50,7 @@ public class ImageUploadController
             // 文件保存路径  
             String filePath = session.getServletContext().getRealPath("/") + "uploads/salebuy/"
                 + TimeUtil.getCurrentDate() + File.separator;
+            
             String fileName = MD5Util.md5Hex(file.getOriginalFilename()) + ".jpg";
             // 转存文件  
             File file2 = new File(filePath);

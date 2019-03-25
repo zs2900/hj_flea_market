@@ -11,6 +11,7 @@
 package com.ecjtu.web.controller.req;
 
 import com.ecjtu.common.controller.request.BaseRequest;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
@@ -28,6 +29,7 @@ public class UpdateHeadPicReq extends BaseRequest
     /**
      * @return 返回 image
      */
+    @Param(canBlank = false)
     public String getImage()
     {
         return image;

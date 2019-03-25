@@ -11,6 +11,8 @@
 package com.ecjtu.web.controller.req;
 
 import com.ecjtu.common.controller.request.BaseRequest;
+import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
@@ -21,6 +23,7 @@ import com.ecjtu.common.controller.request.BaseRequest;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
+@Location(module = "", uri = "")
 public class AddToFavoritesReq extends BaseRequest
 {
     private Integer gId;
@@ -28,6 +31,7 @@ public class AddToFavoritesReq extends BaseRequest
     /**
      * @return 返回 gId
      */
+    @Param(canBlank = false)
     public Integer getgId()
     {
         return gId;

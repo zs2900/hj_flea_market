@@ -14,6 +14,8 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.BaseRequest;
+import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
@@ -24,6 +26,7 @@ import com.ecjtu.common.controller.request.BaseRequest;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
+@Location(module = "", uri = "")
 public class EditSaleInfoReq extends BaseRequest
 {
     private Integer gId;
@@ -33,8 +36,6 @@ public class EditSaleInfoReq extends BaseRequest
     private String detail;
     
     private String address;
-    
-    private String daofou;
     
     private Double price;
     
@@ -55,6 +56,7 @@ public class EditSaleInfoReq extends BaseRequest
     /**
      * @return 返回 gId
      */
+    @Param(canBlank = false)
     public Integer getgId()
     {
         return gId;
@@ -71,6 +73,7 @@ public class EditSaleInfoReq extends BaseRequest
     /**
      * @return 返回 title
      */
+    @Param(canBlank = false)
     public String getTitle()
     {
         return title;
@@ -117,22 +120,6 @@ public class EditSaleInfoReq extends BaseRequest
     }
     
     /**
-     * @return 返回 daofou
-     */
-    public String getDaofou()
-    {
-        return daofou;
-    }
-    
-    /**
-     * @param 对daofou进行赋值
-     */
-    public void setDaofou(String daofou)
-    {
-        this.daofou = daofou;
-    }
-    
-    /**
      * @return 返回 price
      */
     public Double getPrice()
@@ -151,6 +138,7 @@ public class EditSaleInfoReq extends BaseRequest
     /**
      * @return 返回 type
      */
+    @Param(canBlank = false)
     public Integer getType()
     {
         return type;

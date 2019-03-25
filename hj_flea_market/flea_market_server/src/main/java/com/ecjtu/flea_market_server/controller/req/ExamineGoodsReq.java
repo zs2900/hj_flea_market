@@ -12,6 +12,8 @@ package com.ecjtu.flea_market_server.controller.req;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.BaseRequest;
+import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
@@ -22,6 +24,7 @@ import com.ecjtu.common.controller.request.BaseRequest;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
+@Location(module = "", uri = "")
 public class ExamineGoodsReq extends BaseRequest
 {
     private Integer gId;
@@ -31,6 +34,7 @@ public class ExamineGoodsReq extends BaseRequest
     /**
      * @return 返回 gId
      */
+    @Param(canBlank = false)
     public Integer getgId()
     {
         return gId;
@@ -47,6 +51,7 @@ public class ExamineGoodsReq extends BaseRequest
     /**
      * @return 返回 gState
      */
+    @Param(canBlank = false, regex = "[1,5]", maxLength = 1)
     public Integer getgState()
     {
         return gState;

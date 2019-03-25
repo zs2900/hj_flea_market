@@ -94,7 +94,6 @@ public class MyShiroRealm extends AuthorizingRealm
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection)
     {
-        Admin user = (Admin)principalCollection.fromRealm(this.getClass().getName()).iterator().next();//获取session中的用户
         //添加角色和权限
         List<String> permissions = new ArrayList<>();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();

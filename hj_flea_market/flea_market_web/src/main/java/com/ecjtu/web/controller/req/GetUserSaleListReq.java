@@ -12,6 +12,8 @@ package com.ecjtu.web.controller.req;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.PaginationBaseRequest;
+import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
@@ -22,6 +24,7 @@ import com.ecjtu.common.controller.request.PaginationBaseRequest;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
+@Location(module = "", uri = "")
 public class GetUserSaleListReq extends PaginationBaseRequest
 {
     private Integer uId;
@@ -29,6 +32,7 @@ public class GetUserSaleListReq extends PaginationBaseRequest
     /**
      * @return 返回 uId
      */
+    @Param(canBlank = false)
     public Integer getuId()
     {
         return uId;
