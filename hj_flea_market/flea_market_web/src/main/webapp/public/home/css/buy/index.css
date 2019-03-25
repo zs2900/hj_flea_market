@@ -1,0 +1,201 @@
+.wrap .main{
+    padding-left: 180px;
+    padding-right: 160px;
+    padding-top: 50px;
+    width: 100%;
+}
+
+.wrap .main .adv {
+    width: 100%;
+}
+
+.wrap .main .list {
+    margin-top: 40px;
+}
+
+.main .adv .swiper-slide img {
+    width: 100%;
+}
+
+.main .adv .swiper-container{
+    margin-top: 30px;
+    width: 100%;
+    max-height: 350px;
+}
+
+.list .itemlist .itembox {
+    margin-bottom: 30px;
+}
+
+
+.list .itemlist .itembox .item_main {
+    background-color: #fff;
+    padding: 20px 20px 20px 30px;
+    position: relative;
+    background-color: #fbfbfb;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.list .itemlist .itembox .item_main .left {
+    float: left;
+    overflow: hidden;
+    width: 120px;
+    text-align: center;
+}
+.list .itemlist .itembox .item_main .left .userhead {
+    overflow: hidden;
+    text-align: center;
+}
+.list .itemlist .itembox .item_main .left .userhead img {
+    width: 70px;
+    height: 70px;
+    border-radius: 35px;
+}
+.list .itemlist .itembox .item_main .left .username {
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+.list .itemlist .itembox .item_main .left .username a {
+    color: rgb(58,58,58);
+    font-size: 16px;
+}
+.list .itemlist .itembox .item_main .left .username a:hover {
+    color: #ed4e51;
+}
+.list .itemlist .itembox .item_main .right {
+    margin-left: 100px;
+}
+.list .itemlist .itembox .item_main .right .title {
+    color: rgb(58,58,58);
+    font-size: 17px;
+    font-weight: normal;
+    line-height: 120%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.list .itemlist .itembox .item_main .right .desc {
+    color: #1BC06C;
+    font-size: 16px;
+    line-height: 100%;
+    margin-top: 10px;
+    word-break: break-all;
+}
+.list .itemlist .itembox .item_main .right .attr {
+    color: rgb(70,70,70);
+    font-size: 14px;
+    font-weight: normal;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 10px;
+}
+.list .itemlist .itembox .item_main .right .attr .price {
+    color: #ed4e51;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+
+.list .itemlist .itembox .item_main .right .attr .position,
+.list .itemlist .itembox .item_main .right .attr .datetime,
+.list .itemlist .itembox .item_main .right .attr .school{
+    font-weight: normal;
+    font-size: 13px;
+}
+
+.list .itemlist .itembox .item_main .right .attr .position {
+    margin-right: 30px;
+}
+.list .itemlist .itembox .item_main .right .attr .datetime {
+    font-weight: normal;
+    margin-right: 30px;
+}
+.list .itemlist .itembox .item_main .right .contact {
+    color: rgb(58,58,58);
+    font-size: 14px;
+    font-weight: normal;
+    height: 16px;
+    line-height: 16px;
+    margin-top: 18px;
+}
+
+.list .itemlist .itembox .item_main .right .qqnum,
+.list .itemlist .itembox .item_main .right .telnum{
+    font-weight: normal;
+    font-size: 13px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.list .itemlist .itembox .item_main .right
+
+.list .itemlist .itembox .item_main .right .contact .qq {
+    margin-left: 16px;
+}
+
+/*如果没有求购信息，则显示提示*/
+.list .noqiutou{
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    color: #888888;
+}
+
+.school-box .inner-box {
+    margin: 30px 0 0;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px;
+}
+
+.school-box .inner-box .school a {
+    background: rgba(220,220,220,0.7);
+    margin-right: 20px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #555;
+    transition: all 0.3s;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.school-box .inner-box .school a:hover {
+    background-color: rgba(153,204,255,0.5);
+    color: #0a8;
+}
+
+.school-box .inner-box .school a.active {
+    background-color: rgba(153,204,255,0.5);
+    color: #0a8;
+}
+
+.school-box .inner-box .school .more {
+    color: #333;
+    text-decoration: underline;
+    background: transparent;
+    padding-bottom: 3px;
+}
+
+.school-box .inner-box .school .more:hover {
+    background: #fff;
+}
+
+.school-box .inner-box .order {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.school-box .inner-box .order a {
+    color: #555;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.school-box .inner-box .order a.active {
+    color: rgb(0,170,136);
+}

@@ -1,0 +1,32 @@
+.show{
+	background: #fff none repeat scroll 0 0;
+    height: 140px;
+    margin-top: 10px;
+    width: 1500px;
+    padding-left: 140px;
+}
+.showImage{
+	height: 140px;
+    width: 140px;
+    float: left;
+    margin-left: -140px;
+}
+.show_info{
+	padding: 10px;
+    position: relative;
+	float: left;
+}
+.show_state{
+	padding: 20px;
+	width: 100px;
+	position: relative;
+	float: right;
+	height: 100%;
+}
+.onsaling{
+	display: block;
+}
+.edit{
+	position: absolute;
+	bottom: 20px;
+}

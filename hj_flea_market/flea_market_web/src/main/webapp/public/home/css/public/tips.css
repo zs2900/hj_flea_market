@@ -1,0 +1,132 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    color: #616161;
+    font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    background: #fafafa none repeat scroll 0 0;
+    word-wrap: break-word;
+}
+
+.container{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.error-panel {
+    margin-top: 12%;
+}
+.panel-default {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 15px;
+}
+.panel {
+    border: medium none;
+}
+.panel-default {
+    border-color: #e0e0e0;
+}
+.panel {
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.error-panel .panel-heading {
+    font-size: 22px;
+    text-align: center;
+}
+.panel-default > .panel-heading {
+    background: #fff none repeat scroll 0 0;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 15px 0;
+    position: relative;
+}
+.panel-default > .panel-heading {
+    border-color: #e0e0e0;
+    color: #616161;
+}
+.panel-heading {
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    padding: 10px 15px;
+}
+* {
+    box-sizing: border-box;
+}
+
+.error-title {
+    color: #9a9a9a;
+    font-family: "Phosphate";
+    font-size: 40px;
+    margin-right: 15px;
+    text-transform: uppercase;
+}
+
+.web_title{
+    font-size: 22px;
+}
+
+.error-panel .panel-body {
+    padding: 60px 0;
+}
+.panel-default > .panel-body {
+    padding: 15px 0;
+    position: relative;
+}
+.panel-body {
+    padding: 15px;
+    min-height: 200px;
+}
+
+.error-panel .well {
+    margin: auto;
+    position: relative;
+    width: 75%;
+}
+.well {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 25px;
+}
+
+.error-panel .well p{
+    text-align: center; 
+}
+
+.error-panel .well p.tips {
+    margin: 30px 20px;
+    text-align: center;
+    font-size: 30px;
+}
+p {
+    margin: 0 0 10px;
+}
+
+a {
+    color: #37b97d;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
+
+.error-panel .well .error-404-icon {
+    background: rgba(0, 0, 0, 0) url(https://www.youzixy.com/Public/home/images/icon/404.pngg") no-repeat scroll 0 0;
+    height: 241px;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    width: 191px;
+}

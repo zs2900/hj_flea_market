@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.web.dao.GoodsMapper">
+	<resultMap type="com.ecjtu.web.bean.Goods" id="BaseResultMap">
+		<id column="g_id" jdbcType="INTEGER" property="gId" />
+		<result column="g_name" jdbcType="VARCHAR" property="gName" />
+		<result column="g_type" jdbcType="INTEGER" property="gType" />
+		<result column="g_price" jdbcType="DOUBLE" property="gPrice" />
+		<result column="g_updatetime" jdbcType="TIMESTAMP" property="gUpdateTime" />
+		<result column="g_description" jdbcType="LONGVARCHAR" property="gDescription" />
+		<result column="g_number" jdbcType="INTEGER" property="gNumber" />
+		<result column="g_state" jdbcType="INTEGER" property="gState" />
+		<result column="g_address" jdbcType="VARCHAR" property="gAddress" />
+		<result column="u_id" jdbcType="INTEGER" property="uId" />
+		<result column="g_image" jdbcType="VARCHAR" property="gImage" />
+	</resultMap>
+
+	<resultMap type="com.ecjtu.web.bean.resp.SelectGoods" id="selectGoods">
+		<id column="g_id" jdbcType="INTEGER" property="gId" />
+		<result column="g_name" jdbcType="VARCHAR" property="gName" />
+		<result column="g_type" jdbcType="INTEGER" property="gType" />
+		<result column="g_price" jdbcType="DOUBLE" property="gPrice" />
+		<result column="g_updatetime" jdbcType="TIMESTAMP" property="gUpdateTime" />
+		<result column="g_description" jdbcType="LONGVARCHAR" property="gDescription" />
+		<result column="g_number" jdbcType="INTEGER" property="gNumber" />
+		<result column="g_image" jdbcType="VARCHAR" property="gImage" />
+		<result column="g_address" jdbcType="VARCHAR" property="gAddress" />
+		<collection property="pictures" ofType="com.ecjtu.web.bean.Picture">
+			<id column="p_id" jdbcType="INTEGER" property="pId" />
+			<result column="p_code" jdbcType="VARCHAR" property="pCode" />
+			<result column="p_url" jdbcType="VARCHAR" property="pUrl" />
+			<result column="g_id" jdbcType="INTEGER" property="gId" />
+			<result column="p_updatetime" jdbcType="TIMESTAMP" property="pUpdateTime" />
+		</collection>
+	</resultMap>
+
+	<resultMap type="com.ecjtu.web.controller.resp.SelectGoodsDetailResp"
+		id="selectGoodsDetail">
+		<id column="g_id" jdbcType="INTEGER" property="gId" />
+		<result column="g_name" jdbcType="VARCHAR" property="gName" />
+		<result column="g_type" jdbcType="INTEGER" property="gType" />
+		<result column="g_price" jdbcType="DOUBLE" property="gPrice" />
+		<result column="g_updatetime" jdbcType="TIMESTAMP" property="gUpdateTime" />
+		<result column="g_description" jdbcType="LONGVARCHAR" property="gDescription" />
+		<result column="g_number" jdbcType="INTEGER" property="gNumber" />
+		<result column="g_image" jdbcType="VARCHAR" property="gImage" />
+		<result column="g_address" jdbcType="VARCHAR" property="gAddress" />
+		<result column="u_id" jdbcType="INTEGER" property="uId" />
+		<result column="u_name" jdbcType="VARCHAR" property="uName" />
+		<result column="u_address" jdbcType="VARCHAR" property="uAddress" />
+		<result column="u_phone_number" jdbcType="VARCHAR" property="uPhoneNumber" />
+		<result column="u_qq_number" jdbcType="VARCHAR" property="uQQNumber" />
+		<result column="u_school" jdbcType="VARCHAR" property="uSchool" />
+		<collection property="pictures" ofType="com.ecjtu.web.bean.Picture">
+			<id column="p_id" jdbcType="INTEGER" property="pId" />
+			<result column="p_code" jdbcType="VARCHAR" property="pCode" />
+			<result column="p_url" jdbcType="VARCHAR" property="pUrl" />
+			<result column="g_id" jdbcType="INTEGER" property="gId" />
+			<result column="p_updatetime" jdbcType="TIMESTAMP" property="pUpdateTime" />
+		</collection>
+	</resultMap>
+
+	<sql id="goods">
+		g_id, g_name, g_type, g_price, g_updatetime,
+		g_description, g_number, g_state, g_address, u_id, g_image
+	</sql>
+
+	<sql id="selectGoodsList">
+		g.g_id, g.g_name, g.g_type, g.g_price, g.g_updatetime,
+		g.g_description, g.g_number, g.g_address, g.g_state,g.g_image,
+		p.p_id, p.p_url,
+		p.g_id, p.p_updatetime
+	</sql>
+
+	<sql id="goodsDetail">
+		g.g_id, g.g_name, g.g_type, g.g_price, g.g_updatetime,
+		g.g_description, g.g_number, g.g_address, g.g_state, g.g_image,
+		u.u_id,
+		u.u_name, u.u_address, u.u_phone_number, u.u_qq_number, u.u_school,
+		p.p_id, p.p_url, p.g_id, p.p_updatetime
+	</sql>
+
+	<select id="selectGoodsTotal" parameterType="com.ecjtu.web.controller.req.SelectGoodsNumReq"
+		resultType="java.lang.Integer">
+		select count(1)
+		from goods g
+		inner join user u
+		on g.u_id = u.u_id
+		inner
+		join type t
+		on g.g_type = t.t_code
+		where 1 = 1
+		<if test="gName != null">and g.g_name = #{gName,jdbcType=VARCHAR}</if>
+		<if test="gId != null">and g.g_id = #{gId,jdbcType=INTEGER}</if>
+		<if test="gType != null">and g.g_type = #{gType,jdbcType=INTEGER}</if>
+		<if test="gAddress != null">and u.u_address = #{gAddress,jdbcType=VARCHAR}</if>
+		<if test="gState != null">and g.g_state = #{gState,jdbcType=INTEGER}</if>
+	</select>
+
+	<select id="selectGoodsList" parameterType="com.ecjtu.web.controller.req.SelectGoodsListReq"
+		resultMap="selectGoods">
+		select
+		<include refid="selectGoodsList" />
+		from goods g
+		inner join user u
+		on g.u_id = u.u_id
+		inner join type t
+		on
+		g.g_type = t.t_code
+		inner join picture p
+		on g.g_id = p.g_id
+		where g.g_id in (
+			select g.g_id
+			from
+			(
+				select g.g_id
+				from goods g
+				inner join
+				user u
+				on
+				g.u_id = u.u_id
+				<trim prefix="where" suffixOverrides="and">
+				<if test="gName != null">g.g_name = #{gName,jdbcType=VARCHAR} and</if>
+				<if test="gId != null">g.g_id = #{gId,jdbcType=INTEGER} and</if>
+				<if test="gType != null">g.g_type = #{gType,jdbcType=INTEGER} and</if>
+				<if test="gAddress != null">u.u_address = #{gAddress,jdbcType=VARCHAR} and</if>
+				<if test="gState != null">g.g_state = #{gState,jdbcType=INTEGER} and</if>
+				</trim>
+				<trim prefix="order by" suffixOverrides=",">
+				<if test="sortByPrice != null and sortByPrice == 0">g.g_price ,</if>
+				<if test="sortByTime != null and sortByTime == 0">g.g_updatetime ,</if>
+				<if test="sortByPrice != null and sortByPrice == 1">g.g_price desc ,</if>
+				<if test="sortByTime != null and sortByTime == 1">g.g_updatetime desc ,</if>
+				</trim>
+				limit #{offset} , #{pageSize}
+			) as g
+		)
+	</select>
+
+	<select id="selectGoodsDetail" parameterType="java.lang.Integer"
+		resultMap="selectGoodsDetail">
+		select
+		<include refid="goodsDetail" />
+		from
+		goods g
+		left join
+		user u
+		on g.u_id = u.u_id
+		left join
+		picture p
+		on g.g_id = p.g_id
+		where g.g_id =
+		#{gId, jdbcType=INTEGER}
+	</select>
+	
+	<insert id="saveGoods" parameterType="com.ecjtu.web.bean.Goods" useGeneratedKeys="true" keyProperty="gId">
+		insert
+		into 
+		goods
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="gId != null and gId != ''">g_id,</if>
+			<if test="gName != null and gName != ''">g_name,</if>
+			<if test="gType != null and gType != ''">g_type,</if>
+			<if test="gPrice != null and gPrice != ''">g_price,</if>
+			<if test="gUpdateTime == null">g_updatetime,</if>
+			<if test="gDescription != null and gDescription != ''">g_description,</if>
+			<if test="gNumber != null and gNumber != ''">g_number,</if>
+			<if test="gAddress != null and gAddress != ''">g_address,</if>
+			<if test="gState != null">g_state,</if>
+			<if test="gImage != null and gImage != ''">g_image,</if>
+			<if test="uId != null and uId != ''">u_id,</if>
+		</trim>
+		<trim prefix="values (" suffix = ")" suffixOverrides=",">
+			<if test="gId != null and gId != ''">#{gId,jdbcType=INTEGER},</if>
+			<if test="gName != null and gName != ''">#{gName,jdbcType=VARCHAR},</if>
+			<if test="gType != null and gType != ''">#{gType,jdbcType=INTEGER},</if>
+			<if test="gPrice != null and gPrice != ''">#{gPrice,jdbcType=DOUBLE},</if>
+			<if test="gUpdateTime == null">sysdate(),</if>
+			<if test="gDescription != null and gDescription != ''">#{gDescription,jdbcType=LONGVARCHAR},</if>
+			<if test="gNumber != null and gNumber != ''">#{gNumber,jdbcType=INTEGER},</if>
+			<if test="gAddress != null and gAddress != ''">#{gAddress, jdbcType=VARCHAR}</if>
+			<if test="gState != null">#{gState,jdbcType=INTEGER},</if>
+			<if test="gImage != null and gImage != ''">#{gImage,jdbcType=VARCHAR},</if>
+			<if test="uId != null and uId != ''">#{uId,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	
+	<select id="getUserSaleList" parameterType="com.ecjtu.web.controller.req.GetUserSaleListReq" resultMap="BaseResultMap">
+		select
+		<include refid="goods"/>
+		from
+		goods
+		where
+		u_id = #{uId,jdbcType=INTEGER}
+		order by g_updatetime desc
+		limit #{offset},#{pageSize}
+	</select>
+	
+	<select id="getUserSaleNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select count(1)
+		from
+		goods
+		where
+		u_id = #{uId}
+	</select>
+	
+	<select id="getSaleReturn" parameterType="java.lang.Integer" resultMap="selectGoods">
+		select
+		<include refid="selectGoodsList" />
+		from
+		goods g
+		left join
+		picture p
+		on g.g_id = p.g_id
+		where g.g_id = #{gId, jdbcType=INTEGER}
+	</select>
+	
+	<update id="editSaleInfo" parameterType="com.ecjtu.web.bean.Goods">
+		update
+		goods
+		<set>
+			<if test="gName != null and gName != ''">g_name = #{gName, jdbcType=VARCHAR},</if>
+			<if test="gType != null and gType != ''">g_type = #{gType, jdbcType=INTEGER},</if>
+			<if test="gPrice != null and gPrice != ''">g_price = #{gPrice, jdbcType=DOUBLE},</if>
+			<if test="gUpdateTime != null">g_updatetime = sysdate(),</if>
+			<if test="gDescription != null and gDescription != ''">g_description = #{gDescription, jdbcType=LONGVARCHAR},</if>
+			<if test="gNumber != null and gNumber != ''">g_number = #{gNumber, jdbcType=INTEGER},</if>
+			<if test="gAddress != null and gAddress != ''">g_address = #{gAddress, jdbcType=VARCHAR},</if>
+			<if test="gState != null and gState != ''">g_state = #{gState, jdbcType=INTEGER},</if>
+			<if test="uId != null and uId != ''">u_id = #{uId, jdbcType=INTEGER},</if>
+			<if test="gImage != null and gImage != ''">g_image = #{gImage, jdbcType=INTEGER},</if>
+		</set>
+		where
+		g_id = #{gId, jdbcType=INTEGER}
+	</update>
+	
+	<select id="getGoodsById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		*
+		from 
+		goods
+		where 
+		g_id = #{gId,jdbcType=INTEGER}
+	</select>
+	
+</mapper>

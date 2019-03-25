@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.web.dao.MessageMapper">
+	<resultMap type="com.ecjtu.web.bean.Message" id="BaseResultMap">
+		<id column="m_id" jdbcType="INTEGER" property="mId"/>
+		<result column="u_id" jdbcType="INTEGER" property="uId"/>
+		<result column="g_id" jdbcType="INTEGER" property="gId"/>
+		<result column="m_content" jdbcType="VARCHAR" property="mContent"/>
+		<result column="m_sendTime" jdbcType="TIMESTAMP" property="mSendTime"/>
+	</resultMap>
+	
+	<resultMap type="com.ecjtu.web.bean.resp.SelectMessage" id="SelectMessages">
+		<id column="m_id" jdbcType="INTEGER" property="mId"/>
+		<result column="u_id" jdbcType="INTEGER" property="uId"/>
+		<result column="g_id" jdbcType="INTEGER" property="gId"/>
+		<result column="m_content" jdbcType="VARCHAR" property="mContent"/>
+		<result column="m_sendTime" jdbcType="TIMESTAMP" property="mSendTime"/>
+		<result column="u_name" jdbcType="VARCHAR" property="uName"/>
+		<result column="u_head_pic" jdbcType="VARCHAR" property="uHeadPic"/>
+	</resultMap>
+	
+	<sql id="messageInfo">
+		m.m_id, m.u_id, m.g_id, m.m_content, m.m_sendTime, u.u_name, u.u_head_pic
+	</sql>
+	
+	<select id="selectGoodsMessages" parameterType="com.ecjtu.web.controller.req.SelectGoodsMessageReq" resultMap="SelectMessages">
+		select
+		<include refid="messageInfo"/>
+		from 
+		message m
+		inner join 
+		user u
+		on m.u_id = u.u_id
+		where m.g_id = #{gId, jdbcType=INTEGER}
+		order by m.m_sendTime desc
+		limit #{offset},#{pageSize}
+		<!-- <if test="pageSize != null and pageSize != '' and offset != null and offset != ''">
+			limit #{offset}, #{pageSize}
+		</if> -->
+	</select>
+	
+	<select id="selectMessageNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select
+		count(1)
+		from 
+		message m
+		where m.g_id = #{gId,jdbcType=INTEGER}
+	</select>
+	
+	<insert id="saveMessage" parameterType="com.ecjtu.web.controller.req.SendMessageReq">
+		insert
+		into message
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="gId != null">
+				g_id,
+			</if>
+			<if test="uId != null">
+				u_id,
+			</if>
+			<if test="mContent != null">
+				m_content,
+			</if>
+			m_sendTime,
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="gId != null">
+				#{gId,jdbcType=INTEGER},
+			</if>
+			<if test="uId != null">
+				#{uId,jdbcType=INTEGER},
+			</if>
+			<if test="mContent != null">
+				#{mContent,jdbcType=VARCHAR},
+			</if>
+			sysdate(),
+		</trim>
+	</insert>
+</mapper>

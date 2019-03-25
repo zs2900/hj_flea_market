@@ -1,0 +1,550 @@
+.main{
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 85px;
+    width: 100%;
+    border-style: solid solid none;
+    border-width: 4px 0px 0;
+    border-color: #e7eaec;
+}
+
+.main .detail {
+    background: #fff;
+    padding-left: 500px;
+}
+
+.main .detail .picture{
+    float: left;
+    margin-left: -500px;
+}
+
+.main .detail .info{
+    margin-top: 25px;
+}
+
+.main .detail .picture{
+    width: 500px;
+    margin-top: 15px;
+}
+
+.con-FangDa-ImgList > li > img {
+    width: 70px;
+    height: 70px;
+}
+
+.main .detail .info{
+
+}
+
+.main .detail .info ul{
+    margin-left: 80px;
+}
+
+.main .detail .info ul li{
+    width: 100%;
+    margin: 0 0;
+    height: 50px;
+    padding: 1px;
+}
+
+.main .detail .info ul li .text{
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 5px;
+
+}
+
+.main .detail .info ul .other{
+    margin: 10px;
+    float: left;
+    width: 500px;
+    margin-left: 0;
+}
+
+.main .detail .info ul .title{
+    font-weight: 400;
+    height: 36px;
+    font-size: 20px;
+    color:  rgb(58,58,58);
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    word-wrap: break-word;
+    border-style: solid solid none;
+    border-width: 0px 0px 0 4px;
+    padding-left: 8px;
+    border-color: #d7eaec;
+}
+
+.main .detail .info ul .price{
+    font-size: 28px;
+    overflow: hidden;
+    color: red;
+    font-weight: bold;
+}
+
+.main .detail .info ul .user .seehim{
+    display: inline-block;
+    color: #4bc0a5;
+    margin-left: 10px;
+}
+
+.main .detail .info ul .price .daofou{
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(58,58,58);
+}
+
+.main .detail .info ul .price .iconfont{
+    color: rgb(58,58,58)!important;
+}
+
+.main .detail .info ul .price .iconfont{
+    color: rgb(2,185,239);
+}
+
+.main .detail .info ul .same{
+    font-size: 18px;
+    color: rgb(2,185,239);
+    font-weight: bold;
+}
+
+.main .detail .info ul .user .icon{
+    background: url(https://www.youzixy.com/Public/home/images/goodsdis/6.pngg') no-repeat scroll 0 0;
+    width: 30px;
+    height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main .detail .info .needlogin{
+    color: #1b816c;;
+}
+
+.main .detail .info ul .same span:nth-child(2){
+    font-weight: normal;
+    color: rgb(58,58,58);
+}
+
+.main .detail .info ul .user .name{
+    color: #4bc0a5!important;
+    font-weight: normal;
+}
+
+.main .detail .button-group{
+    margin-top: 20px;
+}
+
+.badge {
+    background-color: rgb(2,185,239);
+}
+
+.commonbox{
+    box-sizing: border-box;
+    background-color: #fff;
+    margin: 35px auto;
+    padding: 0 0px 30px;
+    border-radius: 3px;
+}
+
+.commonbox .commontip{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px 5px;
+    width: 100px;
+    text-align: center;
+    background-color: rgb(0,170,136);
+    color: #fff;
+}
+
+.commonbox .listdis{
+    margin: 10px auto;
+}
+
+.reply-list .detail {
+    padding-left: 0;
+}
+
+.commonbox .listdis li{
+
+}
+
+.commonbox .listdis .mycommon{
+    display: inline-block;
+    font-size: 20px;
+    line-height: 20px;
+    color: rgb(58,58,58);
+    font-weight: bold;
+    margin: 5px 20px 5px 0;
+}
+
+.commonbox .listdis .showcommon{
+    display: inline-block;
+    font-size: 18px;
+}
+
+.commonbox .listdis .time {
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 50px;
+}
+
+.commonbox .listdis .float-right{
+    cursor: pointer;
+}
+
+.commonbox .listdis .float-left{
+    font-size: 20px;
+    color: rgb(58,58,58);
+}
+
+.commonbox .common{
+    height: 60px;
+    margin-top: 4px;
+}
+
+#reply-to-tips{
+    padding-left: 70px;
+    font-size: 14px;
+}
+
+.commonbox .commonto .to{
+    display: inline-block;
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: bold;
+    color: rgb(58,58,58);
+}
+
+.commonbox .box{
+    padding: 0 100px;
+}
+
+.commonbox .common #commoncontent{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 60px;
+    width: 60%;
+    font-size: 18px;
+    border: 1px solid rgb(0,170,136);
+    float: left;
+    padding: 5px;
+    margin-left: 10px;
+    font-size: 15px;
+   color: #555;
+   overflow: hidden;
+}
+
+.commonbox .common .commonbtn{
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: rgb(0,170,136);
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    height: 60px;
+    width: 70px;
+    float: left;
+    border: none;
+}
+
+.commonbox .common img{
+    width: 60px;
+    float: left;
+    height: 60px;
+    border-radius: 30px;
+}
+
+/*推荐商品的样式*/
+.item-list {
+    margin: auto;
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-radius: 3px;
+}
+
+.item-list .goodsbox {
+    font-size: 0;
+    list-style: none;
+    text-align: center;
+    text-align-last: left;
+    padding-left: 0;
+}
+
+.item-list .goodsbox .items {
+    display: inline-block;
+    position: relative;
+    width: 210px;
+    float: left;
+    font-size: 12px;
+    box-sizing: border-box;
+    text-align: left;
+    border: 1px solid #ddd;
+    transition: border 1s ease;
+    margin: 0 10px 30px;
+    background-color: #fff;
+}
+
+.item-list .goodsbox .items:hover{
+    border: 1px solid rgb(2,185,239);
+}
+
+.item-list .goodsbox .items .detail{
+    padding: 8px;
+}
+
+.item-list .goodsbox .items .picture{
+    width: 100%;
+    height: 200px;
+}
+
+.item-list .goodsbox .items .picture img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.item-list .goodsbox .items .pricehot .price{
+    color: red;
+    font-size: 22px;
+    float: left;
+    font-weight: bold;
+}
+
+.item-list .goodsbox .items .pricehot .hot{
+    float: right;
+    font-size: 13px;
+    color: #888;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+
+.item-list .goodsbox .items .title {
+    font-weight: 400;
+    font-size: 15px;
+    color: #1B816C  ;
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.item-list .goodsbox .items .some .school{
+    width: 65%;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+    font-size: 1em;
+    color: #858D8E;
+}
+
+.item-list .goodsbox .items .some .renzheng{
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    overflow: hidden;
+    float: right;
+    font-size: 1em;
+    color: #858D8E;
+}
+/*推荐商品的样式结束*/
+.item-list .tuijian{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 4px 5px;
+    width: 100px;
+    text-align: center;
+    background-color: rgb(0,170,136);
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/*物品详情部分的样式开始*/
+.ershou-desc {
+    background-color: #fff;
+    border-radius: 3px;
+    position: relative;
+    background-image: url(https://www.youzixy.com/resource/image/info.pngg");
+    background-position: 12px 12px;
+    background-repeat: no-repeat;
+    margin: 20px auto 20px;
+    padding: 30px 90px;
+    text-align: left;
+}
+
+.ershou-desc .yinhao{
+    position: absolute;
+    left: 10px;
+    top: 0px;
+}
+
+.ershou-desc .desc {
+    color: #666666;
+    font-size: 1.17em;
+    line-height: 23px;
+    min-height: 50px;
+}
+
+.ershou-desc .desc #user_ph {
+    border-radius: 100%;
+    float: left;
+    height: 80px;
+    margin-right: 20px;
+    vertical-align: middle;
+    width: 80px;
+}
+
+
+.ershou-desc .desc #user_cmt {
+    float: left;
+    width: 667px;
+}
+/*物品详情部分的样式结束*/
+
+/*分享部分的样式开始*/
+#goods_button_more {
+    background: rgba(0, 0, 0, 0) url("../../../images/shareicons/goods_share_more.png") no-repeat scroll 0 0;
+}
+
+.jiathis_style_32x32 .jiathis_button_renren .jtico_renren {
+    background: rgba(0, 0, 0, 0) url("../../../images/shareicons/goods_share_5.png") no-repeat scroll 0 0;
+}
+
+.jiathis_style_32x32 .jiathis_button_qzone .jtico_qzone {
+    background: rgba(0, 0, 0, 0) url("../../../images/shareicons/goods_share_1.png") no-repeat scroll 0 0;
+}
+
+.jiathis_style_32x32 .jiathis_button_tsina .jtico_tsina {
+    background: rgba(0, 0, 0, 0) url("../../../images/shareicons/goods_share_2.png") no-repeat scroll 0 0;
+}
+
+.jiathis_style_32x32 .jiathis_button_cqq .jtico_cqq {
+    background: rgba(0, 0, 0, 0) url("../../../images/shareicons/goods_share_3.png") no-repeat scroll 0 0;
+}
+
+.jiathis_style_32x32 .jiathis_button_weixin .jtico_weixin {
+    background: rgba(0, 0, 0, 0) url("../../../images/shareicons/goods_share_4.png") no-repeat scroll 0 0;
+}
+.jiathis_style_32x32 .jtico_weixin {
+    background-position: 0 -3680px;
+}
+.jiathis_style_32x32 .jiathis_txt {
+    float: left;
+    font-size: 22px;
+    line-height: 32px !important;
+    text-decoration: none;
+}
+.jiathis_style_32x32 .jtico {
+    background: rgba(0, 0, 0, 0) url(https://www.youzixy.com/Public/images/shareicons/jiathis_ico_32x32.pngg") no-repeat scroll left center;
+    cursor: pointer;
+    display: block !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    overflow: hidden;
+    padding-left: 36px !important;
+    text-align: left;
+}
+/*分享部分的样式结束*/
+
+/* 回复列表部分的样式 */
+.reply-list .list-item{
+    margin: 15px auto;
+
+}
+
+.reply-list .list-item .head{
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    float: left;
+}
+
+.reply-list .list-item .head img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+.reply-list .list-item .text{
+    margin-left: 10px;
+    float: left;
+    width: 670px;
+}
+
+.reply-list .list-item .text .username{
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+}
+
+.reply-list .list-item .text .info{
+    float: right;
+    display: inline-block;
+
+}
+
+.reply-list .list-item .text .username .reply{
+    display: inline-block;
+    color: rgb(0,170,136);
+    font-size: 17px;
+    margin: 0 8px;
+}
+
+.reply-list .list-item .text .info .reply-time{
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.reply-list .list-item .text .info .reply{
+    display: inline-block;
+    color: rgb(0,170,136);
+    cursor: pointer;
+}
+
+.reply-list .list-item .text .detail{
+    font-size: 14px;
+}
+
+.more-appraise {
+    margin: 10px 0;
+    padding: 5px 0;
+    text-align: center;
+}
+
+.more-appraise .btn{
+    height: 40px;
+    line-height: 40px;
+    color: rgb(0,170,136);
+    border-radius: 20px;
+    border: 1px solid rgb(0,170,136);
+    width: 250px;
+    padding: 0;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

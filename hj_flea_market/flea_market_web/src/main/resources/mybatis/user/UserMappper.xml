@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.web.dao.UserMapper">
+	<resultMap type="com.ecjtu.web.bean.User" id="BaseResultMap">
+		<id column="u_id" jdbcType="INTEGER" property="uId"/>
+		<result column="u_name" jdbcType="VARCHAR" property="uName"/>
+		<result column="u_email" jdbcType="VARCHAR" property="uEmail"/>
+		<result column="u_password" jdbcType="VARCHAR" property="uPassword"/>
+		<result column="u_age" jdbcType="INTEGER" property="uAge"/>
+		<result column="u_sex" jdbcType="INTEGER" property="uSex"/>
+		<result column="u_address" jdbcType="VARCHAR" property="uAddress"/>
+		<result column="u_registration_time" jdbcType="TIMESTAMP" property="uRegistrationTime"/>
+		<result column="u_qq_number" jdbcType="VARCHAR" property="uQQNumber"/>
+		<result column="u_phone_number" jdbcType="VARCHAR" property="uPhoneNum"/>
+		<result column="u_school" jdbcType="VARCHAR" property="uSchool"/>
+		<result column="u_head_pic" jdbcType="VARCHAR" property="uHeadPic"/>
+	</resultMap>
+	
+	<sql id="Base_Column_List">
+    	u_id,u_name,u_email,u_password,u_age,u_sex,u_address,u_registration_time,u_qq_number,u_phone_number,u_school,u_head_pic
+  	</sql>
+	
+	<select id="selectUbyEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from user
+		where u_email = #{uEmail,jdbcType=VARCHAR};
+	</select>
+	
+	<select id="selectUbyId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from user
+		where u_id = #{uId,jdbcType=INTEGER};
+	</select>
+	
+	<insert id="regist" parameterType="com.ecjtu.web.bean.User" >
+		insert into user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uId != null">u_id,</if>
+      		<if test="uName != null">u_name,</if>
+      		<if test="uEmail != null">u_email,</if>
+      		<if test="uPassword != null">u_password,</if>
+      		<if test="uSex != null">u_age,</if>
+      		<if test="uAge != null">u_sex,</if>
+      		<if test="uAddress != null">u_address,</if>
+      		<if test="uRegistrationTime != null">u_registration_time,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="uId != null">#{uId,jdbcType=INTEGER},</if>
+			<if test="uName != null">#{uName,jdbcType=VARCHAR},</if>
+			<if test="uEmail != null">#{uEmail,jdbcType=VARCHAR},</if>
+			<if test="uPassword != null">#{uPassword,jdbcType=VARCHAR},</if>
+			<if test="uSex != null">#{uSex,jdbcType=INTEGER},</if>
+			<if test="uAge != null">#{uAge,jdbcType=INTEGER},</if>
+			<if test="uAddress != null">#{uAddress,jdbcType=VARCHAR},</if>
+			<if test="uRegistrationTime != null">#{uRegistrationTime,jdbcType=DATE},</if>
+		</trim>
+	</insert>
+	
+	<update id="updateUserInfo" parameterType="com.ecjtu.web.bean.User">
+		update user
+		<set>
+			<if test="uId != null">u_id = #{uId,jdbcType=INTEGER},</if>
+			<if test="uName != null">u_name = #{uName,jdbcType=VARCHAR},</if>
+      		<if test="uEmail != null">u_email = #{uEmail,jdbcType=VARCHAR},</if>
+      		<if test="uPassword != null">u_password = #{uPassword,jdbcType=VARCHAR},</if>
+      		<if test="uSex != null">u_age = #{uSex,jdbcType=INTEGER},</if>
+      		<if test="uAge != null">u_sex = #{uAge,jdbcType=INTEGER},</if>
+      		<if test="uAddress != null">u_address = #{uAddress,jdbcType=VARCHAR},</if>
+      		<if test="uRegistrationTime != null">u_registration_time = #{uRegistrationTime,jdbcType=Date},</if>
+      		<if test="uQQNumber != null">u_qq_number = #{uQQNumber,jdbcType=VARCHAR},</if>
+      		<if test="uPhoneNum != null">u_phone_number = #{uPhoneNum,jdbcType=VARCHAR},</if>
+      		<if test="uSchool != null">u_school = #{uSchool,jdbcType=VARCHAR},</if>
+      		<if test="uHeadPic != null">u_head_pic = #{uHeadPic,jdbcType=VARCHAR},</if>
+		</set>
+		where u_id = #{uId,jdbcType=INTEGER}
+	</update>
+	
+</mapper>

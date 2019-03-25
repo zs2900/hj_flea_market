@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace = "com.ecjtu.web.dao.PictureMapper">
+	<resultMap type="com.ecjtu.web.bean.Picture" id="BaseResultMap">
+		<id column="p_id" jdbcType="INTEGER" property="pId"/>
+			<result column="p_code" jdbcType="VARCHAR" property="pCode"/>
+			<result column="p_url" jdbcType="VARCHAR" property="pUrl"/>
+			<result column="g_id" jdbcType="INTEGER" property="gId"/>
+			<result column="p_update_time" jdbcType="TIMESTAMP" property="pUpdateTime"/>
+	</resultMap>
+	
+	<insert id="savePicture" parameterType="com.ecjtu.web.bean.Picture">
+		insert 
+		into picture
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pId != null and pId != ''">p_id,</if>
+			<if test="pCode != null and pCode != ''">p_code,</if>
+			<if test="pUrl != null and pUrl != ''">p_url,</if>
+			<if test="gId != null and gId != ''">g_id,</if>
+			<if test="pUpdateTime == null">p_updatetime,</if>
+		</trim>
+		<trim prefix=" values (" suffix=")" suffixOverrides=",">
+			<if test="pId != null and pId != ''">#{pId,jdbcType=INTEGER},</if>
+			<if test="pCode != null and pCode != ''">#{pCode,jdbcType=VARCHAR},</if>
+			<if test="pUrl != null and pUrl != ''">#{pUrl,jdbcType=VARCHAR},</if>
+			<if test="gId != null and gId != ''">#{gId,jdbcType=INTEGER},</if>
+			<if test="pUpdateTime == null">sysdate(),</if>
+		</trim>
+	</insert>
+	
+	<delete id="deletePicture">
+		delete
+		from 
+		picture
+		where
+		g_id = #{gId,jdbcType=INTEGER}
+	</delete>
+</mapper>

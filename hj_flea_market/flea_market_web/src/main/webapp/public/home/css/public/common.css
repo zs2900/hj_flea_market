@@ -1,0 +1,441 @@
+/* ---全局导航样式开始--- */
+body {
+	background-color: rgb(227,238,236);
+}
+
+.navbar .navbar-brand {
+	padding: 0;
+}
+
+.navbar-fixed-top {
+    z-index: 100;
+}
+
+.navbar {
+	border-radius: 0;
+	margin-bottom: 0;
+}
+
+.navbar .navbar-nav {
+	position: relative;
+}
+
+.navbar.navbar-inverse {
+	background: rgb(53,54,54);
+}
+
+.navbar .nav>li>a {
+	padding: 15px 20px;
+	position: relative;
+	z-index: 9;
+	color: rgb(220,220,220);
+	transition: color 0.5s;
+}
+
+.navbar .nav li.current {
+	color: #fff;
+	background: rgb(140,140,140);
+}
+
+.navbar .nav li.back{
+	padding: 15px 20px;
+	height: 50px;
+	z-index: 8;
+	position: absolute;
+	background: rgb(140,140,140);
+}
+
+.navbar-brand>img {
+	margin-top: 2px;
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.navbar .search-btn {
+	border-radius: 0 3px 3px 0;
+	background: rgb(140,140,140);
+	border-color: rgb(140,140,140);
+}
+
+.navbar .search-field {
+	border-radius: 3px 0 0 3px;
+}
+
+.navbar .search-box {
+	margin-right: 30px;
+}
+
+.nav .headpic {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+}
+
+.headpic-link {
+	padding-top: 5px!important;
+	padding-bottom: 0!important;
+}
+
+.login-box {
+	margin-right: 30px;
+}
+
+
+/* ---全局导航样式结束--- */
+
+
+/* ---全局左边导航菜单样式开始--- */
+
+ul {
+	padding-left: 0;
+}
+
+li {
+	list-style: none;
+}
+
+.item-box {
+	position: fixed;
+	left: 0;
+	top: 50px;
+	bottom: 0;
+	background-color: #3e434a;
+	width: 140px;
+	overflow: auto;
+}
+
+.item-box .all-item {
+	width: 100%;
+	position: relative;
+	left: 0;
+	overflow: visible;
+	border-style: none;
+}
+
+.item-box .all-item .item {
+	padding: 15px 15px;
+	color: #fff;
+	border-bottom: 1px solid rgb(90,90,90);
+	position: relative;
+	z-index: 9;
+	cursor: pointer;
+}
+
+.item-box .all-item .item.current {
+	background: rgb(140,140,140);
+	color: #fff;
+}
+
+.item-box .all-item .item .iconfontitems {
+	font-size: 22px;
+	color: #fff;
+	line-height: 1;
+	color: rgb(220,220,220);
+}
+
+.item-box .all-item .item .title {
+	line-height: 1;
+	font-size: 16px;
+	margin-top: 5px;
+	margin-left: 10px;
+	color: rgb(220,220,220);
+}
+
+.item-box .all-item .item a{
+	color: rgb(220,220,220);
+}
+
+.item-box .all-item .item .now,
+.item-box .all-item .item .change {
+	margin-top: 10px;
+	transition: color 0.5s;
+}
+
+.item-box .all-item .item .now:hover,
+.item-box .all-item .item .change:hover {
+	color: #aaa;
+	text-decoration: underline;
+}
+
+
+.item-box .all-item > li.back  {
+	padding: 15px 20px;
+	z-index: 8;
+	position: absolute;
+	background: rgb(140,140,140);
+}
+
+.item-box .all-item .item.school {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* ---全局左边导航菜单样式结束--- */
+
+
+/* ---全局右边挂件样式开始--- */
+.sidebar {
+	position: fixed;
+	right: 0;
+	top: 80px;
+	bottom: 0;
+	min-height: 768px;
+	width: 140px;
+	padding: 10px;
+    z-index: 99;
+}
+
+.sidebar .btn .ershou,
+.sidebar .btn .qiugou{
+    background: rgb(59,64,71) none repeat scroll 0 0;
+    border-radius: 4px;
+    height: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.sidebar .btn .ershou:hover,
+.sidebar .btn .qiugou:hover{
+    box-shadow: 1px 5px 1px 1px rgba(0, 0, 0, 0.16);
+}
+
+.sidebar .btn .ershou a,
+.sidebar .btn .qiugou a{
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar .helped{
+    background: rgba(0, 0, 0, 0) url(../../../images/icon/help.pngg") no-repeat scroll 0 0;
+    color: rgb(58,58,58);
+    font-size: 26px;
+    height: 155px;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 73px;
+}
+
+.sidebar .helped span{
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 22px;
+}
+
+.sidebar .contact{
+    text-align: center;
+    color: rgb(58,58,58);
+    margin: 20px 0;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+*::before, *::after {
+    box-sizing: border-box;
+}
+
+.sidebar .erweima{
+    margin-top: 10px;
+    padding: 1px;
+}
+
+.sidebar .erweima .qq {
+    background-image: url(../../../images/icon/qq.pngg");
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+
+}
+.sidebar .erweima .wb {
+    background-image: url(../../../images/icon/wb.pngg");
+    margin-right: 10px;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+}
+
+.sidebar .adphone{
+    background: url(../../../images/icon/phone.pngg") no-repeat center;
+    background-size: 114px 220px;
+    margin-right: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: inline-block;
+    height: 220px;
+    width: 114px;
+}
+
+.sidebar .adphone img{
+    height: 220px;
+    width: 114px;
+}
+
+/* ---全局右边挂件样式结束--- */
+
+
+/* ---全局底部样式开始--- */
+
+.pagination {
+    margin-bottom: 0;
+}
+
+.main .common-footer {
+	overflow:hidden;
+	background-color:#282c36;
+	height:auto!important;
+	margin-right: -160px;
+	margin-left: -180px;
+    margin-top: 35px;
+}
+.common-footer .footerNav {
+	width:100%;
+	height:40px;
+	background-color:#888;
+}
+.common-footer .fn {
+	width:750px;
+	margin:0 auto;
+	overflow:hidden;
+}
+.common-footer .fn li {
+	float:left;
+	line-height:40px;
+	height:40px;
+	padding-right:35px;
+}
+.common-footer .fnIco {
+	display:block;
+	width:5px;
+	height:5px;
+	margin:17px 10px 0 0;
+	float:left;
+	border:#ffffff solid 2px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.common-footer .fn li a {
+	color:#ffffff;
+	font-size:14px;
+}
+.common-footer .footerMain {
+	width:1000px;
+	margin:0 auto;
+	overflow:hidden;
+	padding:30px 0;
+}
+.common-footer .fLogo {
+	display:block;
+	width:200px;
+	height:80px;
+	margin:25px 40px 0 0;
+	text-indent:-999px;
+	overflow:hidden;
+	background-size:100% 100%;
+	background:url(../../../images/icon/logo1.pngg") no-repeat;
+	float:left;
+}
+.common-footer .fContact {
+	float:left;
+	padding:0 15px;
+	border-left:#30343f solid 1px;
+	width:280px;
+}
+.common-footer .fct {
+	color:#999999;
+	padding-bottom:10px;
+}
+.common-footer .fct span {
+	font-size:14px;
+	font-weight:normal;
+}
+.common-footer .fContact p {
+	font-size:14px;
+	margin-top:7px;
+	color:#999999;
+	line-height:25px;
+}
+.common-footer .fEwm {
+	float:left;
+	width:200px;
+	text-align:center;
+	padding:10px 40px 0;
+	border-left:#30343f solid 1px;
+	border-right:#30343f solid 1px;
+}
+.common-footer .fEwm p {
+	color:#999999;
+	font-size:14px;
+	padding-top:5px;
+}
+.common-footer .fCall {
+	float:right;
+	width:200px;
+    position: relative;
+}
+.common-footer .callN {
+	color:#999999;
+	font-size:22px;
+	font-weight:bold;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.common-footer .callT {
+	color:#666666;
+	font-size:14px;
+	padding-top:5px;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.common-footer .kfT {
+	display:block;
+	width:190px;
+	font-size:14px;
+	margin:10px 0;
+	background-color:#cc424b;
+	color:#ffffff;
+	text-align:center;
+	line-height:35px;
+	height:35px;
+}
+.common-footer .fxl,.fqq,.fwx {
+	display:block;
+	width:50px;
+	height:50px;
+	overflow:hidden;
+	text-indent:-100px;
+	float:left;
+}
+.common-footer .fxl {
+	background:url(../../../images/icon/sprite.pngg") no-repeat 0 0;
+}
+.common-footer .fqq {
+	background:url(../../../images/icon/sprite.pngg") no-repeat -58px 0;
+	margin-left:20px;
+}
+.common-footer .fwx {
+	background:url(../../../images/icon/sprite.pngg") no-repeat -115px 0;
+	margin-left:20px;
+}
+.common-footer .copyright {
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	color:#999999;
+	font-size:14px;
+	background-color:#22252e;
+}
+
+.footer .copyright a {
+    display: inline-block;
+}
+
+
+/* ---全局底部样式结束--- */
+
+

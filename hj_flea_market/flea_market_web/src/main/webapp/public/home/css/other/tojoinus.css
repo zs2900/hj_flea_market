@@ -1,0 +1,14 @@
+.main {
+    padding-left: 180px;
+    padding-right: 160px;
+    padding-top: 100px;
+    width: 100%;
+}
+
+.i-checks {
+    display: inline-block;
+}
+
+.blockquote-desc p{
+    font-size: 14px;
+}

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.web.dao.FavoritesMappper">
+	<resultMap type="com.ecjtu.web.bean.Favorites" id="BaseResultMap">
+		<id column="f_id" jdbcType="INTEGER" property="fId" />
+		<result column="u_id" jdbcType="INTEGER" property="uId" />
+		<result column="g_id" jdbcType="INTEGER" property="gId" />
+		<result column="f_collection_time" jdbcType="TIMESTAMP" property="fCollectionTime" />
+		<result column="f_is_delete" jdbcType="INTEGER" property="fIsDelete" />
+	</resultMap>
+	
+	<resultMap type="com.ecjtu.web.bean.resp.SelectFavorites" id="FavoritesGoods">
+		<id column="f_id" jdbcType="INTEGER" property="fId" />
+		<result column="u_id" jdbcType="INTEGER" property="uId" />
+		<result column="g_id" jdbcType="INTEGER" property="gId" />
+		<result column="f_collection_time" jdbcType="TIMESTAMP" property="fCollectionTime" />
+		<result column="f_is_delete" jdbcType="INTEGER" property="fIsDelete" />
+		<result column="g_name" jdbcType="VARCHAR" property="gName" />
+		<result column="g_price" jdbcType="DOUBLE" property="gPrice" />
+		<result column="g_state" jdbcType="INTEGER" property="gState" />
+		<result column="g_image" jdbcType="VARCHAR" property="gImage" />
+	</resultMap>
+	
+	<sql id="favorites">
+		f.f_id,f.u_id,f.g_id,f.f_collection_time,f.f_is_delete,
+		g.g_name,g.g_price,g.g_image,g.g_state
+	</sql>
+	
+	<insert id="addToFavorites" parameterType="com.ecjtu.web.bean.Favorites">
+		insert
+		into
+		favorites
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="fId != null">f_id,</if>
+			<if test="uId != null">u_id,</if>
+			<if test="gId != null">g_id,</if>
+			<if test="fCollectionTime == null">f_collection_time,</if>
+			<if test="fIsDelete != null">f_is_delete,</if>
+		</trim>
+		<trim prefix="values (" suffix = ")" suffixOverrides=",">
+			<if test="fId != null">#{fId,jdbcType=INTEGER},</if>
+			<if test="uId != null">#{uId,jdbcType=INTEGER},</if>
+			<if test="gId != null">#{gId,jdbcType=INTEGER},</if>
+			<if test="fCollectionTime == null">sysdate(),</if>
+			<if test="fIsDelete != null">#{fIsDelete,jdbcType=INTEGER},</if>
+		</trim>
+	</insert>
+	
+	<select id="getUserFavoritesNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		select count(1)
+		from
+		favorites
+		where
+		u_id = #{uId}
+	</select>
+	
+	<select id="getUserFavoritesList" parameterType="com.ecjtu.web.controller.req.GetUserFavoritesReq" resultMap="FavoritesGoods">
+		select 
+		<include refid="favorites"/>
+		from 
+		favorites f
+		left join
+		goods g
+		on f.g_id = g.g_id
+		where f.u_id = #{uId, jdbcType=INTEGER} and f_is_delete = 0
+		order by f.f_collection_time
+		limit #{offset},#{pageSize}
+	</select>
+	
+	<update id="deleteFavorites" parameterType="java.lang.Integer">
+		update
+		favorites
+		<set>f_is_delete = 1</set>
+		where f_id = #{fId, jdbcType=INTEGER}
+	</update>
+
+</mapper>

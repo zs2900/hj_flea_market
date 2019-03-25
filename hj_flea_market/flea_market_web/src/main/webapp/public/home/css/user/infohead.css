@@ -1,0 +1,215 @@
+.top {
+    height: 220px;
+    margin-top: 50px;
+    padding-left: 220px;
+}
+
+#user_photo {
+    background: #f6f9f9 none repeat scroll 0 0;
+    height: 220px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    width: 220px;
+    margin-left: -220px;
+}
+
+#user_msg {
+    background: #fff none repeat scroll 0 0;
+    height: 220px;
+    position: relative;
+}
+
+#user_photo img {
+    border-radius: 100%;
+    cursor: pointer;
+    height: 140px;
+    width: 140px;
+}
+img {
+    border: 0 none;
+}
+
+#user_photo img {
+    border-radius: 100%;
+    cursor: pointer;
+    left: 20px;
+    position: absolute;
+    top: 20px;
+    height: 180px;
+    width: 180px;
+}
+
+#change_ph {
+    display: none;
+    left: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.name {
+    font: 26px "Microsoft YaHei";
+    padding: 20px 0 0 20px;
+}
+
+.has_sell {
+    color: #878787;
+    font-size: 16px;
+    line-height: 120%;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.seller_attr {
+    border-left: 4px solid rgb(58,58,58);
+    margin-left: 20px;
+    margin-top: 22px;
+    padding-left: 20px;
+
+}
+ul, li {
+    list-style: outside none none;
+}
+
+.seller_attr > li {
+    color: rgb(58,58,58);
+    font-size: 14px;
+    line-height: 120%;
+    list-style: outside none none;
+    padding: 6px 0;
+    margin-left: 10px;
+}
+
+.seller_attr > li > span {
+    display: inline-block;
+}
+
+#middle_nav {
+    background: #fff none repeat scroll 0 0;
+    border-top: 4px solid #3DB399;
+    height: 55px;
+    margin-top: 50px;
+    padding-left: 0px;
+    position: relative;
+}
+
+#middle_nav li {
+    height: 100%;
+    list-style: outside none none;
+    position: relative;
+    z-index: 9;
+}
+
+#middle_nav li.current {
+    background: rgb(61,179,153);
+}
+
+#middle_nav li.current a {
+    color: #fff;
+}
+
+#middle_nav li.back {
+    color: #fff!important;
+    width: 16.66666667%;
+    height: 100%;
+    z-index: 8;
+    position: absolute;
+    background: rgb(61,179,153)!important;
+}
+
+#middle_nav li a{
+    transition: color 0.3s;
+}
+
+#middle_nav li a:hover{
+    color: #fff;
+}
+
+#middle_nav li a {
+    color: #444;
+    display: block;
+    font: 16px/54px "Microsoft YaHei";
+    height: 55px;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* ---è£å‰ªå¤´åƒå¼€å§‹-- */
+
+#myModal .modal-dialog{
+    width: 760px;
+}
+
+.avatar-box {
+    width: 700px;
+    border: 1px solid rgb(150,150,150);
+}
+
+.avatar-box .avatar-content {
+
+}
+
+.avatar-container {
+    float: left;
+    max-height: 320px!important;
+    overflow: hidden;
+}
+
+.avatar-preview {
+    float: left;
+    margin-left: 25px;
+}
+
+.avatar-preview .preview-img {
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.avatar-container {
+    width: 500px;
+}
+
+.cropper-img {
+    max-width: 100%;
+}
+
+.cropper-button {
+    padding: 0;
+    margin-top: 10px;
+}
+
+.cropper-button li {
+    display: inline-block;
+    list-style: none;
+    background-color: rgb(45,108,160);
+    border-radius: 3px;
+    margin-left: 15px;
+    padding: 7px 13px;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cropper-button li:hover {
+    background-color: rgb(35,85,125);
+}
+
+.cropper-button .choose_img {
+    position: relative;
+}
+
+.cropper-button .choose_img input {
+    position: absolute;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+    left: 0;
+    max-width: 100%;
+    bottom: 0;
+    cursor: pointer;
+}
+
+/* ---è£å‰ªå¤´åƒç»“æŸ--- */

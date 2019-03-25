@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>欢迎页面-X-admin2.1</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="stylesheet" href="static/css/font.css">
+    <link rel="stylesheet" href="static/css/xadmin.css">
+    <link rel="stylesheet" href="static/css/examinegoods.css">
+    <script type="text/javascript" src="static/lib/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="static/js/common.js"></script>
+    <script type="text/javascript" src="static/js/examinegoods.js"></script>
+    <script type="text/javascript" src="static/js/xadmin.js"></script>
+    <script type="text/javascript" src="static/js/cookie.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <div class="x-body">
+        <form class="layui-form">
+        <input hidden="hidden" name="gId">
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  	商品名称
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_email" name="gName" 
+                  autocomplete="off" class="layui-input">
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_email" class="layui-form-label">
+                  	商品类型
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="gType" 
+                  autocomplete="off" class="layui-input">
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="L_username" class="layui-form-label">
+                  	商品期望价格
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="L_username" name="gPrice" 
+                  autocomplete="off" class="layui-input">
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="" class="layui-form-label">
+                  	商品交易地点
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" name="gAddress"
+                  autocomplete="off" class="layui-input">
+              </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+		    <label class="layui-form-label">商品描述</label>
+		    <div class="layui-input-block">
+		      <textarea placeholder="请输入内容" name="gDescription" rows="5" cols="40"></textarea>
+		    </div>
+  		  </div>
+  		  <div class="layui-form-item" id="gImage">
+  		  
+  		  </div>
+  		  <div class="layui-form-item" id="gDisplayImages">
+  		  
+  		  </div>
+      </form>
+      <div class="layui-form-item">
+		    <div class="layui-input-block">
+		      <button class="layui-btn layui-btn-normal" onclick="SaleGoodsPass(1)" >通过</button>
+		      <button class="layui-btn layui-btn-warm" onclick="SaleGoodsPass(5)">驳回</button>
+		    </div>
+	  </div>
+    <!-- <script>
+        layui.use(['form','layer'], function(){
+            $ = layui.jquery;
+          var form = layui.form,
+          layer = layui.layer;
+        });
+    </script> -->
+  </body>
+
+</html>

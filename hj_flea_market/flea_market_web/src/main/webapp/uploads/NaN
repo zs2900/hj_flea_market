@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="icon" href="/Public/home/images/icon/smalllogo.png" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>页面找不到 - 柚子校园</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta content="c138f23c3e9c71d97aa6073c78d29e5bb83fceb3" name="csrf-token">
+    <link type="text/css" rel="stylesheet" href="/Public/home/css/public/404.css">
+    <!--[if lt IE 9]>
+    <script src="/assets/libs/html5shiv.js?6.6.6"></script>
+    <script src="/assets/libs/respond.min.js?6.6.6"></script>
+    <![endif]-->
+
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-default error-panel">
+        <div class="panel-heading">
+            <span class="error-title">404</span>该页面不存在或已被删除！
+        </div>
+        <div class="panel-body">
+            <div class="well">
+                <p>该页面似乎已经被删除，或者已被网校遗忘。</p>
+                <p>请确认您的来源链接是否正确？
+                    商品，二手，求购信息是否存在？</p>
+                <p><a href="/index/index">返回首页 &gt;</a></p>
+                <span class="error-404-icon hidden-xs"></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body></html>

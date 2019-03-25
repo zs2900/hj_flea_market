@@ -1,0 +1,78 @@
+@charset "UTF-8";
+.demo-image{
+    width: 100%;
+}
+.pagination,.pagination1,.pagination2,.pagination3,.pagination4{
+	position: relative;
+    text-align: center;
+  	zoom: 1;
+}
+.pagination:before,.pagination:after,.pagination1:before,.pagination1:after ,.pagination2:before,.pagination2:after ,.pagination3:before,.pagination3:after,.pagination4:before,.pagination4:after{
+    content:"";
+    display:table;
+}
+.pagination:after,.pagination1:after,.pagination2:after,.pagination3:after,.pagination4:after{
+	clear:both;
+	overflow:hidden;
+}
+.pagination span,.pagination1 span,.pagination2 span,.pagination3 span,.pagination4 span{
+	float: left;
+	margin:0 5px;
+	width: 38px;
+    height: 38px;
+    line-height: 38px;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+.pagination .active,.pagination1 .active,.pagination2 .active,.pagination3 .active,.pagination4 .active{
+	float: left;
+	margin:0 5px;
+	width: 38px;
+    height: 38px;
+    line-height: 38px;
+    background: #e91e63;
+    color: #fff;
+    font-size: 14px;
+    border: 1px solid #e91e63;
+}
+.pagination a,.pagination1 a,.pagination2 a,.pagination3 a,.pagination4 a{
+	float: left;
+	margin:0 5px;
+	width: 38px;
+    height: 38px;
+    line-height: 38px;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    color: #bdbdbd;
+    font-size: 14px;
+}
+.pagination a:hover,.pagination1 a:hover,.pagination2 a:hover,.pagination3 a:hover,.pagination4 a:hover{
+	color:#fff;
+    background: #e91e63;
+}
+.pagination .next,.pagination .prev,.pagination1 .next,.pagination1 .prev{
+	font-family: "Simsun";
+    font-size: 16px;
+    font-weight: bold;
+}
+.now,.count{
+	padding:0 5px;
+	color:#f00;
+}
+.eg img{
+	max-width: 800px;
+	min-height: 500px;
+}
+input{
+    float: left;
+    margin:0 5px;
+    width: 38px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    outline: none;
+    color: #bdbdbd;
+    font-size: 14px;
+}

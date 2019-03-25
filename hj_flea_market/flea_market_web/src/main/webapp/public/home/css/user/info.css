@@ -1,0 +1,150 @@
+.main {
+    padding-left: 180px;
+    padding-right: 160px;
+    padding-top: 50px;
+    width: 100%;
+}
+.hide{display:none!important;}
+.show{display: block!important;}
+.moxie-shim{width: 82px;height: 26px;}
+.moxie-shim>input{font-size: 0!important;cursor: pointer;}
+.loading{margin-top: 170px;}
+.hidden{visibility: hidden;}
+
+.item-info a {
+    color: #fff;
+}
+
+.wrap-head-img{
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -270px;
+    margin-top: -270px;
+    border-top: 2px solid #00ac90;
+    border-radius: 3px;
+    width: 540px;
+    height: 540px;
+}
+
+#change_ph{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: none;
+}
+#got_value{
+    background: #FFB200;
+    position: absolute;
+    bottom: 0px;
+    height: 20px;
+    z-index: 60;
+    width: 100px;
+}
+#grade_value_btn{
+    position: absolute;
+    bottom: -5px;
+    left: 90px;
+    z-index: 70;
+}
+
+#my_info,#userSale,#userFavorites{
+    background: #fff;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding: 40px 60px;
+
+}
+#my_info li{
+    list-style: none;
+}
+#account_info h2,#base_info h2{
+    border-bottom:  1px solid #00AC90;
+    font: 16px "Microsoft YaHei";
+    color: #00AC90;
+    padding-bottom: 7px;
+    width: 480px;
+    margin: 20px;
+}
+.infos{
+    color: #444;
+    font: 14px "Microsoft YaHei";
+    margin: 10px 0px 0px 20px;
+}
+#my_info .infos li{
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+    width: 60px;
+    text-align:  left;
+    line-height: 30px;
+    vertical-align: middle;
+}
+#my_info .infos li.right_info{
+    display: inline;
+    text-align:  left;
+    margin-left:  30px;
+}
+#my_info .right_info  span{
+    display: inline;
+}
+#my_info .right_info  input{
+    display: none;
+    border: 1px solid #C4CBCE;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    width: 180px;
+    height: 30px;
+    text-indent: 16px;
+    *line-height: 30px;
+}
+#my_info .right_info  input:focus{
+    border: 1px solid #3CC2A5;
+}
+
+#base_info{
+    margin-top: 30px;
+}
+#base_info h2{
+    position: relative;
+}
+#edit_info,#save_info{
+    background: #fff;
+    border: 1px solid #4BC0A5;
+    text-align: center;
+    line-height: 26px;
+    width: 68px;
+    position: absolute;
+    right: 0px;
+    bottom: -13px;
+    display: block;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    -ms-border-radius: 13px;
+    cursor: pointer;
+}
+#edit_info:hover{
+    background: #4BC0A5;
+    color:  #fff;
+}
+#save_info{
+    display: none;
+    background: #4BC0A5;
+    color:  #fff;
+}
+#save_info:hover{
+    background: #fff;
+    color: #4BC0A5;
+}
+
+#my_enshrine{
+    width: 920px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+

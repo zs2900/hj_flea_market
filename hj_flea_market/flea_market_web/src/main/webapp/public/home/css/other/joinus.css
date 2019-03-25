@@ -1,0 +1,165 @@
+.main {
+    padding-left: 180px;
+    padding-right: 160px;
+    padding-top: 100px;
+    width: 100%;
+}
+
+
+.main .top{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/title.png") ;
+    display: inline-block;
+    width: 500px;
+    height: 150px;
+}
+
+.main .middle{
+    background-color: #fff;
+    width: 960px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 5px;
+}
+
+.main .middle .box {
+    margin: 0 5px;
+    width: 220px;
+    display: inline-block;
+    padding: 15px 7px 10px 7px;
+    border-radius: 5px;
+}
+
+.main .middle .box h3{
+    font-size: 24px;
+    line-height: 1.5em;
+    text-align: center;
+    color: #fff;
+}
+
+.main .middle .box p{
+    font-size: 14px;
+    line-height: 1.5em;
+    color: #fff;
+    margin-bottom: 0px;
+}
+
+.main .middle .box .figure{
+    display: block;
+    height: 190px;
+    margin: 0 auto 15px;
+    width: 135px;
+}
+
+.main .middle .box1{
+    background: #f0b49c none repeat scroll 0 0;
+}
+
+.main .middle .box1 i{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/joinus.png") no-repeat scroll 0 0;
+    background-position: 0 0;
+}
+
+.middle .box1:hover i {
+    background-position: 0 -190px;
+}
+
+.main .middle .box2{
+    background: #9dced4 none repeat scroll 0 0;
+}
+
+.main .middle .box2 i{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/joinus.png") no-repeat scroll 0 0;
+    background-position: -135px 0;
+}
+
+.middle .box2:hover i {
+    background-position: -135px -190px;
+}
+
+.main .middle .box3{
+    background: #e3ce73 none repeat scroll 0 0;
+}
+
+.main .middle .box3 i{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/joinus.png") no-repeat scroll 0 0;
+    background-position: -270px 0;
+}
+
+.middle .box3:hover i {
+    background-position: -270px -190px;
+}
+
+.main .middle .box4{
+    background: #bdde6d none repeat scroll 0 0;
+}
+
+.main .middle .box4 i{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/joinus.png") no-repeat scroll 0 0;
+    background-position: -405px 0;
+}
+
+.middle .box4:hover i {
+    background-position: -405px -190px;
+}
+
+.text_bg{
+    width: 960px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: auto;
+}
+
+.description{
+    margin: 15px auto;
+    background-color: rgb(41,181,206);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-indent:2em;
+    color: #fff;
+    font-size: 16px;
+}
+
+.air{
+    background-image: url("../../../images/joinus/air.png");
+    background-repeat: no-repeat;
+    display: none;
+    height: 500px;
+    left: 390px;
+    z-index: 2;
+    position: fixed;
+    top: 100px;
+    width: 550px;
+}
+
+.bottom{
+    width: 960px;
+    text-align: center;
+    margin: 10px auto;
+}
+
+.bottom .text{
+    display: inline-block;
+}
+
+.bottom .text1{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/text1.png") no-repeat scroll 0 0;
+    width: 250px;
+    height: 71px;
+    margin-bottom: 25px;
+}
+
+.bottom .text2{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/text2.png") no-repeat scroll 0 0;
+    width: 125px;
+    height: 130px;
+}
+
+.bottom .text3{
+    background: rgba(0, 0, 0, 0) url("../../../images/joinus/text3.png") no-repeat scroll 0 0;
+    width: 250px;
+    height: 71px;
+    margin-bottom: 25px;
+
+}

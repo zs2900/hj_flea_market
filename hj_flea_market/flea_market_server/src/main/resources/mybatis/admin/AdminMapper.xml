@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.flea_market_server.dao.AdminMapper">
+	<resultMap type="com.ecjtu.flea_market_server.bean.Admin" id="BaseResult">
+		<id column="a_id" jdbcType="INTEGER" property="aId"/>
+		<result column="a_name" jdbcType="VARCHAR" property="aName"/>
+		<result column="a_password" jdbcType="VARCHAR" property="aPassword"/> 
+	</resultMap>
+
+	<select id="getAdmin" resultMap = "BaseResult">
+		select
+		*
+		from
+		admin
+		where
+		a_name = #{username, jdbcType=VARCHAR} and a_password = #{password, jdbcType=VARCHAR}
+	</select>
+	
+	<select id="getAdminByName" parameterType="java.lang.String" resultMap = "BaseResult">
+		select
+		*
+		from
+		admin
+		where
+		a_name = #{name, jdbcType=VARCHAR}
+	</select>
+</mapper>

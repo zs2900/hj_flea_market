@@ -1,0 +1,81 @@
+html,body{
+    min-height: 200px;
+}
+
+body .main{
+    padding-left: 180px;
+    padding-right: 160px;
+    padding-top: 150px;
+    width: 100%;
+}
+
+.ibox {
+    margin-bottom: 0;
+}
+
+.main .found-box {
+    width: 600px;
+    margin: auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.main .found-title{
+    margin: auto;
+    width: 500px;
+    height: 120px;
+    background: url("../../../images/icon/forget_icon.png");
+    text-align: center;
+}
+
+.ui-step-3 li{
+    width: 200px;
+    position: 
+}
+
+.ui-step .step-end{
+    width: auto;
+}
+
+.step-top{
+    text-align: center;
+}
+
+.ui-step{
+    margin: 0 auto;
+}
+
+.main .found-form{
+    margin: 60px auto 30px;
+    width: 500px;
+}
+
+.form-horizontal {
+    margin-top: 50px;
+}
+
+.form-horizontal .control-label {
+    width: 125px;
+}
+
+.submitbtn {
+    margin-left: 125px;
+    width: 392px;
+}
+
+.code-box {
+    position: relative;
+}
+
+.code-box #verifycode {
+    position: absolute;
+    right: 16px;
+    top: 1px;
+    bottom: 1px;
+    height: 32px;
+}
+
+.success-box {
+    margin-top: 60px;
+    text-align: center;
+}
