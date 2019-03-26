@@ -50,4 +50,10 @@ public class IndexController
     {
         return "login";
     }
+    
+    @RequestMapping(value = "/displayEdit", method = RequestMethod.GET)
+    public String editDisplay()
+    {
+        return "editdisplay";
+    }
 }

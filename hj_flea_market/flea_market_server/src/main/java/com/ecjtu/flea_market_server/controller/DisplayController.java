@@ -18,8 +18,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ecjtu.common.exception.InnerException;
 import com.ecjtu.common.validator.annotations.AOPLogAnnotation;
+import com.ecjtu.flea_market_server.controller.req.DisplayDeleteReq;
+import com.ecjtu.flea_market_server.controller.req.DisplayEditReq;
+import com.ecjtu.flea_market_server.controller.req.DisplayEditReturnReq;
+import com.ecjtu.flea_market_server.controller.req.DisplayListReq;
 import com.ecjtu.flea_market_server.controller.req.DisplayManagerReq;
+import com.ecjtu.flea_market_server.controller.req.DisplayStartReq;
+import com.ecjtu.flea_market_server.controller.resp.DisplayDeleteResp;
+import com.ecjtu.flea_market_server.controller.resp.DisplayEditResp;
+import com.ecjtu.flea_market_server.controller.resp.DisplayEditReturnResp;
+import com.ecjtu.flea_market_server.controller.resp.DisplayListResp;
 import com.ecjtu.flea_market_server.controller.resp.DisplayManagerResp;
+import com.ecjtu.flea_market_server.controller.resp.DisplayStartResp;
 import com.ecjtu.flea_market_server.service.DisplayManagerService;
 
 /**
@@ -44,5 +54,40 @@ public class DisplayController
     {
         
         return displayManagerService.addDisplay(req);
+    }
+    
+    @RequestMapping(value = "/displayList", method = RequestMethod.POST)
+    public DisplayListResp selectDisplay(@RequestBody DisplayListReq req)
+        throws InnerException
+    {
+        return displayManagerService.selectDisplay(req);
+    }
+    
+    @RequestMapping(value = "/startDisplay", method = RequestMethod.POST)
+    public DisplayStartResp startDisplay(@RequestBody DisplayStartReq req)
+        throws InnerException
+    {
+        return displayManagerService.startDisplay(req);
+    }
+    
+    @RequestMapping(value = "/returnDisplay", method = RequestMethod.POST)
+    public DisplayEditReturnResp returnDisplay(@RequestBody DisplayEditReturnReq req)
+        throws InnerException
+    {
+        return displayManagerService.selectDisplayById(req);
+    }
+    
+    @RequestMapping(value = "/editDisplay", method = RequestMethod.POST)
+    public DisplayEditResp editDisplay(@RequestBody DisplayEditReq req)
+        throws InnerException
+    {
+        return displayManagerService.editDisplay(req);
+    }
+    
+    @RequestMapping(value = "/deleteDisplay", method = RequestMethod.POST)
+    public DisplayDeleteResp deleteDisplay(@RequestBody DisplayDeleteReq req)
+        throws InnerException
+    {
+        return displayManagerService.deleteDisplay(req);
     }
 }

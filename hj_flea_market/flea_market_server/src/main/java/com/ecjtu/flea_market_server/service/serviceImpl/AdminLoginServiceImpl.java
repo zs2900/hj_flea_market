@@ -59,8 +59,8 @@ public class AdminLoginServiceImpl implements AdminLoginService
         catch (Exception e)
         {
             AdminLoginResp resp = new AdminLoginResp();
-            resp.setRetCode(ResultCode.USER_NOT_FIND.getResultCode());
-            resp.setRetMsg(ResultCode.USER_NOT_FIND.getResultMsg());
+            resp.setRetCode(ResultCode.LOGIN_FILED.getResultCode());
+            resp.setRetMsg(ResultCode.LOGIN_FILED.getResultMsg());
             return resp;
         }
     }

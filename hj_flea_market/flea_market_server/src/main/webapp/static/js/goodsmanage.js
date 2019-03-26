@@ -82,6 +82,7 @@ function getMyDate(str){
     oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay) +' '+ getzf(oHour) +':'+ getzf(oMin) +':'+getzf(oSen);//最后拼接时间  
     return oTime;  
 };  
+
 //补0操作  
 function getzf(num){  
     if(parseInt(num) < 10){  

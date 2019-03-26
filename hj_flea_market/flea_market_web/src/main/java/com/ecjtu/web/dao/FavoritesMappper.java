@@ -14,7 +14,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ecjtu.web.bean.Favorites;
+import com.ecjtu.common.model.Favorites;
 import com.ecjtu.web.bean.resp.SelectFavorites;
 import com.ecjtu.web.controller.req.GetUserFavoritesReq;
 

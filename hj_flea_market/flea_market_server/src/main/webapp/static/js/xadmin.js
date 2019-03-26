@@ -361,7 +361,6 @@ function getCateId(cateId) {
     h       弹出层高度（缺省调默认值）
 */
 function x_admin_show(title,url,w,h){
-	console.log(url);
     if (title == null || title == '') {
         title=false;
     };
@@ -394,7 +393,7 @@ function x_admin_show(title,url,w,h){
         end:function(){
           //窗口销毁之后刷新frame
          //location.replace(location.href);
-        	x_admin_father_reload();
+        	//x_admin_father_reload();
         }
     });
 }

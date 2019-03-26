@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ecjtu.web.bean.Picture;
+import com.ecjtu.common.model.Picture;
 
 /**
  * <一句话功能简述>

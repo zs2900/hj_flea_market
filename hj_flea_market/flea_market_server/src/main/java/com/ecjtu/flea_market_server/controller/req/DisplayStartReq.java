@@ -1,16 +1,14 @@
 /*
- * 文 件 名:  DisplayManagerReq.java
+ * 文 件 名:  DispalyStartReq.java
  * 版    权:  Huawei Technologies Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
  * 描    述:  <描述>
  * 修 改 人:  ZhongYi
- * 修改时间:  2019年3月25日
+ * 修改时间:  2019年3月26日
  * 跟踪单号:  <跟踪单号>
  * 修改单号:  <修改单号>
  * 修改内容:  <修改内容>
  */
 package com.ecjtu.flea_market_server.controller.req;
-
-import java.sql.Timestamp;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.BaseRequest;
@@ -22,20 +20,16 @@ import com.ecjtu.common.validator.annotations.Param;
  * <功能详细描述>
  * 
  * @author  ZhongYi
- * @version  [版本号, 2019年3月25日]
+ * @version  [版本号, 2019年3月26日]
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
 @Location(module = "", uri = "")
-public class DisplayManagerReq extends BaseRequest
+public class DisplayStartReq extends BaseRequest
 {
     private Integer dId;
     
-    private Integer gId;
-    
-    private String dImg;
-    
-    private Timestamp dAddTime;
+    private Integer dState;
     
     /**
      * @return 返回 dId
@@ -55,54 +49,20 @@ public class DisplayManagerReq extends BaseRequest
     }
     
     /**
-     * @return 返回 gId
+     * @return 返回 dState
      */
-    @Param(canBlank = false, regex = "^[\\d]+$")
-    public Integer getgId()
+    @Param(canBlank = true, regex = "^[0,1]$")
+    public Integer getdState()
     {
-        return gId;
+        return dState;
     }
     
     /**
-     * @param 对gId进行赋值
+     * @param 对dState进行赋值
      */
-    public void setgId(Integer gId)
+    public void setdState(Integer dState)
     {
-        this.gId = gId;
-    }
-    
-    /**
-     * @return 返回 dImg
-     */
-    @Param(canBlank = false, regex = "^[\\w,/,.]+$")
-    public String getdImg()
-    {
-        return dImg;
-    }
-    
-    /**
-     * @param 对dImg进行赋值
-     */
-    public void setdImg(String dImg)
-    {
-        this.dImg = dImg;
-    }
-    
-    /**
-     * @return 返回 dAddTime
-     */
-    @Param(canBlank = true)
-    public Timestamp getdAddTime()
-    {
-        return dAddTime;
-    }
-    
-    /**
-     * @param 对dAddTime进行赋值
-     */
-    public void setdAddTime(Timestamp dAddTime)
-    {
-        this.dAddTime = dAddTime;
+        this.dState = dState;
     }
     
     /** 

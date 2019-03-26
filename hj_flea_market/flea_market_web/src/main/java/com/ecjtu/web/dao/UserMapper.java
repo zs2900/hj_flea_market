@@ -12,7 +12,7 @@ package com.ecjtu.web.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ecjtu.web.bean.User;
+import com.ecjtu.common.model.User;
 
 /**
  * <一句话功能简述>

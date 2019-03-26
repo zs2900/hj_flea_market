@@ -14,7 +14,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.ecjtu.web.bean.Goods;
+import com.ecjtu.common.model.Goods;
 import com.ecjtu.web.bean.resp.SelectGoods;
 import com.ecjtu.web.controller.req.GetUserSaleListReq;
 import com.ecjtu.web.controller.req.SelectGoodsListReq;

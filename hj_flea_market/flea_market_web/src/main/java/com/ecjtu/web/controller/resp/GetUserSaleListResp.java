@@ -14,7 +14,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.response.BaseResponse;
-import com.ecjtu.web.bean.Goods;
+import com.ecjtu.common.model.Goods;
 
 /**
  * <一句话功能简述>

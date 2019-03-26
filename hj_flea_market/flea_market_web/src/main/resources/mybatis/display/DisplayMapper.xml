@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ecjtu.web.dao.DisplayMapper">
+	<resultMap type="com.ecjtu.common.model.Display" id="BaseResult">
+		<id column="d_id" jdbcType="INTEGER" property="dId"/>
+		<result column="g_id" jdbcType="INTEGER" property="gId"/>
+		<result column="d_state" jdbcType="INTEGER" property="dState"/>
+		<result column="d_img" jdbcType="VARCHAR" property="dImg"/>
+		<result column="d_addTime" jdbcType="TIMESTAMP" property="dAddTime"/>
+	</resultMap>
+	
+	<select id="selectDisplayList" parameterType="java.lang.Integer" resultMap="BaseResult">
+		select
+		*
+		from
+		display
+		where
+		d_state = #{dState, jdbcType=INTEGER}
+	</select>
+</mapper>

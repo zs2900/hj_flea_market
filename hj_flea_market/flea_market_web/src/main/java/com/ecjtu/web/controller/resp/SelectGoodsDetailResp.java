@@ -16,7 +16,7 @@ import java.util.List;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.response.LoginStateBaseResponse;
-import com.ecjtu.web.bean.Picture;
+import com.ecjtu.common.model.Picture;
 
 /**
  * <一句话功能简述>

@@ -7,19 +7,19 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
-    <link rel="stylesheet" href="../static/css/font.css">
-    <link rel="stylesheet" href="../static/css/xadmin.css">
-    <link rel="stylesheet" href="../static/css/examinegoods.css">
-    <script type="text/javascript" src="../static/lib/jquery/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="../static/lib/layui/layui.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../static/js/common.js"></script>
-    <script type="text/javascript" src="../static/js/xadmin.js"></script>
-    <script type="text/javascript" src="../static/js/cookie.js"></script>
+    <link rel="stylesheet" href="static/css/font.css">
+    <link rel="stylesheet" href="static/css/xadmin.css">
+    <script type="text/javascript" src="static/lib/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="static/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="static/js/common.js"></script>
+    <script type="text/javascript" src="static/js/xadmin.js"></script>
+    <script type="text/javascript" src="static/js/cookie.js"></script>
   </head>
   
   <body>
     <div class="x-body">
         <form class="layui-form">
+          <input hidden="hidden" name="dId" id="dId"> 
           <div class="layui-form-item">
               <label for="L_email" class="layui-form-label">
                   	商品id
@@ -42,14 +42,52 @@
 				  </div>
 			  </div> 
           </div>
+          <div class="layui-form-item">
+              <label for="L_username" class="layui-form-label">
+                  	状态
+              </label>
+              <div class="layui-input-inline">
+	            <select name="contrller" id = "dState">
+	              <option value=0>已启用</option>
+	              <option value=1>已停用</option>
+	            </select>
+	          </div>
+          </div>
       </form>
       <div class="layui-form-item">
 		    <div class="layui-input-block">
-		      <button class="layui-btn layui-btn-normal" onclick="addDisplay()" >添加</button>
+		      <button class="layui-btn layui-btn-normal" onclick="editDisplay()" >编辑</button>
 		    </div>
 	  </div>
 	  
 	  <script type="text/javascript">
+	  $(function(){
+		  var req = getRequest();
+		  var data = {};
+		  data.dId = req.dId;
+		  $.ajax({
+			  url: "/hj_flea_market/returnDisplay",
+			  type: "post",
+			  dataType: "json",
+			  data: JSON.stringify(data),
+			  contentType: "application/json;charset=utf-8",
+			  success: function(result){
+				  if(result.retCode == 0){
+					  $("#dId").attr("value", result.display.dId);
+					  $("#gId").attr("value", result.display.gId);
+					  $("#demo1").attr("src", result.imageRoot + result.display.dImg);
+					  $("#imageUrl").attr("value", result.display.dImg);
+					  $("#dState option").each(function(){
+						  if($(this).val() == result.display.dState){
+							  $(this).attr("selected", "selected");
+						  }
+					  });
+				  }else {
+					  layer.msg(result.retMsg);
+				  }
+			  }
+		  });
+	  })
 	  layui.use('upload', function(){
 		  var $ = layui.jquery,upload = layui.upload;
 		  
@@ -66,14 +104,12 @@
 		    ,done: function(res){
 		      //如果上传失败
 		      if(res.code != 0){
-		        return layer.msg('上传失败');
+		        return layer.msg('上传失败',{icon:5});
 		      }
 		      //上传成功
 		      if(res.retCode == 0){
-		    	  console.log(res.imagePath);
 		    	  $("#imageUrl").attr("value", res.imagePath);
 		      }
-		      
 		    }
 		    ,error: function(){
 		      //演示失败状态，并实现重传
@@ -86,12 +122,14 @@
 		  });
 	  });
 	  
-	  function addDisplay(){
+	  function editDisplay(){
 		  var data = {};
+		  data.dId = $("#dId").attr("value");
 		  data.gId = $("input[name='gId']").val();
 		  data.dImg = $("#imageUrl").attr("value");
+		  data.dState = $("#dState").val();
 		  $.ajax({
-			  url: "/hj_flea_market/addDisplay",
+			  url: "/hj_flea_market/editDisplay",
 			  type: "post",
 			  dataType: "json",
 			  data: JSON.stringify(data),
@@ -99,10 +137,10 @@
 			  success: function(result){
 				  if(result.retCode == 0){
 					  setTimeout("x_admin_close()", 1200);
-					  layer.msg("添加成功",{icon: 1, time: 1000});
+					  layer.msg("编辑成功", {icon: 1,time : 1000});
 					  setTimeout("x_admin_father_reload()", 1200);
 				  }else{
-					  layer.msg(result.retMsg,{icon: 5, time: 1000});
+					  layer.msg(result.retMsg, {icon: 5,time : 1000});
 				  }
 			  }
 		  });

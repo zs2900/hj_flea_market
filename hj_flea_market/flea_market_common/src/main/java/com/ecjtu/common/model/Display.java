@@ -12,6 +12,8 @@ package com.ecjtu.common.model;
 
 import java.sql.Timestamp;
 
+import com.alibaba.fastjson.JSONObject;
+
 /**
  * 展示栏
  * <功能详细描述>
@@ -30,6 +32,8 @@ public class Display
     private Integer gId;
     
     private String dImg;
+    
+    private Integer dState;
     
     /**
      * @return 返回 dId
@@ -95,6 +99,22 @@ public class Display
         this.dImg = dImg;
     }
     
+    /**
+     * @return 返回 dState
+     */
+    public Integer getdState()
+    {
+        return dState;
+    }
+    
+    /**
+     * @param 对dState进行赋值
+     */
+    public void setdState(Integer dState)
+    {
+        this.dState = dState;
+    }
+    
     /** 
      * <一句话功能简述>
      * <功能详细描述>
@@ -104,7 +124,7 @@ public class Display
     @Override
     public String toString()
     {
-        return "Display [dId=" + dId + ", dAddTime=" + dAddTime + ", gId=" + gId + ", dImg=" + dImg + "]";
+        return JSONObject.toJSONString(this);
     }
     
 }

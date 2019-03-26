@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ecjtu.web.dao.FavoritesMappper">
-	<resultMap type="com.ecjtu.web.bean.Favorites" id="BaseResultMap">
+	<resultMap type="com.ecjtu.common.model.Favorites" id="BaseResultMap">
 		<id column="f_id" jdbcType="INTEGER" property="fId" />
 		<result column="u_id" jdbcType="INTEGER" property="uId" />
 		<result column="g_id" jdbcType="INTEGER" property="gId" />
@@ -26,7 +26,7 @@
 		g.g_name,g.g_price,g.g_image,g.g_state
 	</sql>
 	
-	<insert id="addToFavorites" parameterType="com.ecjtu.web.bean.Favorites">
+	<insert id="addToFavorites" parameterType="com.ecjtu.common.model.Favorites">
 		insert
 		into
 		favorites

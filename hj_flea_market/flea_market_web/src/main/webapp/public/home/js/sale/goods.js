@@ -51,6 +51,7 @@ function sortSale(obj, target){
 $(function() {
 	updatelogin();
 	initSales();
+	initDisplay();
 	if (!getCookie('margin')) {
 		resetMargin();
 	}
@@ -85,14 +86,14 @@ $(function() {
 		autoplay : 3000,
 		speed : 1000,
 		autoplayDisableOnInteraction : false,
-		lazyLoading : true,
+		lazyLoading : false,
 		lazyLoadingOnTransitionStart : true,
 		lazyLoadingInPrevNextAmount : 2,
 		lazyLoadingInPrevNext : true,
 	});
 	$("img.lazyload").show().lazyload({
 		threshold : 100,
-		placeholder : "/public/images/icon/small_loading_default.png",
+		placeholder : "public/images/icon/small_loading_default.png",
 		effect : "fadeIn",
 		effectspeed : 500,
 		failure_limit : 10,
@@ -210,4 +211,29 @@ function toSearch() {
 		param.gName = keyword;
 	}
 	findGoods(param);
+}
+
+function initDisplay(){
+	var data = {};
+	data.dState = 0;
+	$.ajax({
+		url: "/hj_flea_market/displaylist",
+		type: "post",
+		dataType: "json",
+		data: JSON.stringify(data),
+		contentType: "application/json;charset=utf-8",
+		success: function(result){
+			if(result.retCode == 0){
+				var ss = "";
+				$.each(result.displays, function(i,obj){
+					ss += '<div class="swiper-slide"><a target="_blank" href="/hj_flea_market/goods?gId='+obj.gId+'">'
+					   + '<img src="'+result.imageRoot + obj.dImg+'" class="swiper-lazy"></a>'
+					   + '<div class="swiper-lazy-preloader"></div></div>';
+				});
+				$(".swiper-wrapper").html(ss);
+			}else {
+				layer.msg(result.retMsg, {icon : 5});
+			}
+		}
+	});
 }

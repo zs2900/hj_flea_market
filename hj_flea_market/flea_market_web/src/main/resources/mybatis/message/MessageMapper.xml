@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ecjtu.web.dao.MessageMapper">
-	<resultMap type="com.ecjtu.web.bean.Message" id="BaseResultMap">
+<!-- 	<resultMap type="com.ecjtu.web.bean.Message" id="BaseResultMap">
 		<id column="m_id" jdbcType="INTEGER" property="mId"/>
 		<result column="u_id" jdbcType="INTEGER" property="uId"/>
 		<result column="g_id" jdbcType="INTEGER" property="gId"/>
 		<result column="m_content" jdbcType="VARCHAR" property="mContent"/>
 		<result column="m_sendTime" jdbcType="TIMESTAMP" property="mSendTime"/>
 	</resultMap>
-	
+ -->	
 	<resultMap type="com.ecjtu.web.bean.resp.SelectMessage" id="SelectMessages">
 		<id column="m_id" jdbcType="INTEGER" property="mId"/>
 		<result column="u_id" jdbcType="INTEGER" property="uId"/>

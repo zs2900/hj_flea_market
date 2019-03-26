@@ -1,46 +1,49 @@
 /*
- * 文 件 名:  UpdateUserInfoReq.java
+ * 文 件 名:  DisplayDeleteReq.java
  * 版    权:  Huawei Technologies Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
  * 描    述:  <描述>
  * 修 改 人:  ZhongYi
- * 修改时间:  2019年3月18日
+ * 修改时间:  2019年3月26日
  * 跟踪单号:  <跟踪单号>
  * 修改单号:  <修改单号>
  * 修改内容:  <修改内容>
  */
-package com.ecjtu.web.controller.req;
+package com.ecjtu.flea_market_server.controller.req;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.BaseRequest;
-import com.ecjtu.common.model.User;
+import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
  * <一句话功能简述>
  * <功能详细描述>
  * 
  * @author  ZhongYi
- * @version  [版本号, 2019年3月18日]
+ * @version  [版本号, 2019年3月26日]
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public class UpdateUserInfoReq extends BaseRequest
+@Location(module = "", uri = "")
+public class DisplayDeleteReq extends BaseRequest
 {
-    private User user;
+    private Integer dId;
     
     /**
-     * @return 返回 user
+     * @return 返回 dId
      */
-    public User getUser()
+    @Param(canBlank = false, regex = "^[\\d]+$")
+    public Integer getdId()
     {
-        return user;
+        return dId;
     }
     
     /**
-     * @param 对user进行赋值
+     * @param 对dId进行赋值
      */
-    public void setUser(User user)
+    public void setdId(Integer dId)
     {
-        this.user = user;
+        this.dId = dId;
     }
     
     /** 

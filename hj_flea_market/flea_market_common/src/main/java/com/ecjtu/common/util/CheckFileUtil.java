@@ -161,8 +161,6 @@ public class CheckFileUtil
             is.read(b, 0, b.length);
             String fileCode = bytesToHexString(b);
             
-            System.out.println(fileCode);
-            
             //这种方法在字典的头代码不够位数的时候可以用但是速度相对慢一点
             Iterator<String> keyIter = FILE_TYPE_MAP.keySet().iterator();
             while (keyIter.hasNext())
@@ -197,9 +195,7 @@ public class CheckFileUtil
             byte[] b = new byte[10];
             is.read(b, 0, b.length);
             String fileCode = bytesToHexString(b);
-            
             System.out.println(fileCode);
-            
             //这种方法在字典的头代码不够位数的时候可以用但是速度相对慢一点
             Iterator<String> keyIter = FILE_TYPE_MAP.keySet().iterator();
             while (keyIter.hasNext())

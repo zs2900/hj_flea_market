@@ -1,39 +1,44 @@
 /*
- * 文 件 名:  Display.java
+ * 文 件 名:  DisplayEditReq.java
  * 版    权:  Huawei Technologies Co., Ltd. Copyright YYYY-YYYY,  All rights reserved
  * 描    述:  <描述>
  * 修 改 人:  ZhongYi
- * 修改时间:  2019年3月7日
+ * 修改时间:  2019年3月26日
  * 跟踪单号:  <跟踪单号>
  * 修改单号:  <修改单号>
  * 修改内容:  <修改内容>
  */
-package com.ecjtu.web.bean;
+package com.ecjtu.flea_market_server.controller.req;
 
-import java.sql.Timestamp;
+import com.alibaba.fastjson.JSONObject;
+import com.ecjtu.common.controller.request.BaseRequest;
+import com.ecjtu.common.validator.annotations.Location;
+import com.ecjtu.common.validator.annotations.Param;
 
 /**
- * 展示栏
+ * <一句话功能简述>
  * <功能详细描述>
  * 
  * @author  ZhongYi
- * @version  [版本号, 2019年3月7日]
+ * @version  [版本号, 2019年3月26日]
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
-public class Display
+@Location(module = "", uri = "")
+public class DisplayEditReq extends BaseRequest
 {
     private Integer dId;
     
-    private Timestamp dAddTime;
-    
     private Integer gId;
+    
+    private Integer dState;
     
     private String dImg;
     
     /**
      * @return 返回 dId
      */
+    @Param(canBlank = false, regex = "^[\\d]+$")
     public Integer getdId()
     {
         return dId;
@@ -48,24 +53,9 @@ public class Display
     }
     
     /**
-     * @return 返回 dAddTime
-     */
-    public Timestamp getdAddTime()
-    {
-        return dAddTime;
-    }
-    
-    /**
-     * @param 对dAddTime进行赋值
-     */
-    public void setdAddTime(Timestamp dAddTime)
-    {
-        this.dAddTime = dAddTime;
-    }
-    
-    /**
      * @return 返回 gId
      */
+    @Param(canBlank = false, regex = "^[\\d]+$")
     public Integer getgId()
     {
         return gId;
@@ -80,8 +70,26 @@ public class Display
     }
     
     /**
+     * @return 返回 dState
+     */
+    @Param(canBlank = false, regex = "^[0,1]$")
+    public Integer getdState()
+    {
+        return dState;
+    }
+    
+    /**
+     * @param 对dState进行赋值
+     */
+    public void setdState(Integer dState)
+    {
+        this.dState = dState;
+    }
+    
+    /**
      * @return 返回 dImg
      */
+    @Param(canBlank = false, regex = "^[\\w,/,.]+$")
     public String getdImg()
     {
         return dImg;
@@ -104,7 +112,7 @@ public class Display
     @Override
     public String toString()
     {
-        return "Display [dId=" + dId + ", dAddTime=" + dAddTime + ", gId=" + gId + ", dImg=" + dImg + "]";
+        return JSONObject.toJSONString(this);
     }
     
 }

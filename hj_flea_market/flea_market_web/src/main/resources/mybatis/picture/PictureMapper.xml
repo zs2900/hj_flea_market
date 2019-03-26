@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace = "com.ecjtu.web.dao.PictureMapper">
-	<resultMap type="com.ecjtu.web.bean.Picture" id="BaseResultMap">
+	<resultMap type="com.ecjtu.common.model.Picture" id="BaseResultMap">
 		<id column="p_id" jdbcType="INTEGER" property="pId"/>
 			<result column="p_code" jdbcType="VARCHAR" property="pCode"/>
 			<result column="p_url" jdbcType="VARCHAR" property="pUrl"/>
@@ -9,7 +9,7 @@
 			<result column="p_update_time" jdbcType="TIMESTAMP" property="pUpdateTime"/>
 	</resultMap>
 	
-	<insert id="savePicture" parameterType="com.ecjtu.web.bean.Picture">
+	<insert id="savePicture" parameterType="com.ecjtu.common.model.Picture">
 		insert 
 		into picture
 		<trim prefix="(" suffix=")" suffixOverrides=",">
