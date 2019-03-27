@@ -10,6 +10,7 @@
  */
 package com.ecjtu.web.controller.req;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ecjtu.common.controller.request.IRequest;
 import com.ecjtu.common.validator.annotations.Location;
 import com.ecjtu.common.validator.annotations.Param;
@@ -81,6 +82,18 @@ public class UserLoginReq implements IRequest
     public void setUserImgCode(String userImgCode)
     {
         this.userImgCode = userImgCode;
+    }
+    
+    /** 
+     * <一句话功能简述>
+     * <功能详细描述>
+     * @return
+     * @see [类、类#方法、类#成员]
+     */
+    @Override
+    public String toString()
+    {
+        return JSONObject.toJSONString(this);
     }
     
 }

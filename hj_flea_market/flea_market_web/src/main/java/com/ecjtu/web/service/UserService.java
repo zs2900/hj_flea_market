@@ -99,4 +99,5 @@ public interface UserService
      */
     BaseResponse updateUserHeadPic(UpdateHeadPicReq req, HttpSession session)
         throws Exception;
+    
 }

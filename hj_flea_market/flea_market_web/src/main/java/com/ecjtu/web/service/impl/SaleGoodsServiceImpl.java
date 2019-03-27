@@ -15,6 +15,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.ecjtu.common.constants.Strings;
@@ -62,6 +63,9 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
     @Autowired
     private PictureMapper pictureMapper;
     
+    @Value("${user.head.image}")
+    private String imageRoot;
+    
     @Override
     public SelectGoodsNumResp selectGoodsTotal(SelectGoodsNumReq req)
         throws InnerException
@@ -75,8 +79,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         SelectGoodsNumResp resp = new SelectGoodsNumResp();
         resp.setGoodsNum(total);
         resp.setPageSize(pageSize);
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
         return resp;
     }
     
@@ -98,8 +100,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         List<SelectGoods> list = goodsMapper.selectGoodsList(req);
         SelectGoodsListResp resp = new SelectGoodsListResp();
         resp.setGoodsList(list);
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
         return resp;
     }
     
@@ -119,12 +119,13 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         Validator.getInstance().validate(SelectGoodsDetailReq.class, req);
         
         SelectGoodsDetailResp resp = goodsMapper.selectGoodsDetail(req.getgId());
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
         if (session.getAttribute("userAccount") != null)
         {
             resp.setIsLogin(1);
-            resp.setuHeadPic("uploads/heads/default1.png");
+            if (resp.getuHeadPic() == null)
+            {
+                resp.setuHeadPic(imageRoot);
+            }
         }
         else
         {
@@ -186,11 +187,9 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
             //将图片插入数据库picture表
             pictureMapper.savePicture(picture);
         }
+        
         //返回成功信息
-        BaseResponse resp = new BaseResponse();
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
-        return resp;
+        return new BaseResponse();
     }
     
     /** 
@@ -225,8 +224,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         GetUserSaleListResp resp = new GetUserSaleListResp();
         resp.setGoodsList(list);
         resp.setTotalPage(total % req.getPageSize() == 0 ? total / req.getPageSize() : total / req.getPageSize() + 1);
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
         
         return resp;
     }
@@ -287,7 +284,7 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         
         //验证用户商品权限
         Goods goods = goodsMapper.getGoodsById(req.getgId());
-        if (goods.getuId() == user.getuId())
+        if (goods.getuId().equals(user.getuId()))
         {
             goods.setgImage(req.getThumb());
             goods.setgName(req.getTitle());

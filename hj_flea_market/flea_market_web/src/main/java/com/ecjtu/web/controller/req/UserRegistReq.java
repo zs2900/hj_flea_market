@@ -33,6 +33,8 @@ public class UserRegistReq extends BaseRequest
     
     String userPassword;
     
+    String surePassword;
+    
     String userEmailCode;
     
     /**
@@ -53,9 +55,10 @@ public class UserRegistReq extends BaseRequest
     }
     
     /**
-     * @return 返回 userEmail
+     * @return 返回 userEmail 
      */
-    @Param(canBlank = false, regex = "^([a-z0-9_\\.-]+)@([\\da-z\\.-]+)\\.([a-z\\.]{2,6})$")
+    @Param(canBlank = false, regex = "^([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$")
+    
     public String getUserEmail()
     {
         return userEmail;
@@ -72,7 +75,7 @@ public class UserRegistReq extends BaseRequest
     /**
      * @return 返回 userPassword
      */
-    @Param(canBlank = false, regex = "^[a-z0-9_-]{6,12}$")
+    @Param(canBlank = false, regex = "^[a-z0-9_A-Z]{6,12}$")
     public String getUserPassword()
     {
         return userPassword;
@@ -89,7 +92,7 @@ public class UserRegistReq extends BaseRequest
     /**
      * @return 返回 userEmailCode
      */
-    @Param(canBlank = false, regex = "^[0-9a-zA-Z]{4}$")
+    @Param(canBlank = false, regex = "^[0-9a-zA-Z]{6}$")
     public String getUserEmailCode()
     {
         return userEmailCode;
@@ -101,6 +104,23 @@ public class UserRegistReq extends BaseRequest
     public void setUserEmailCode(String userEmailCode)
     {
         this.userEmailCode = userEmailCode;
+    }
+    
+    /**
+     * @return 返回 surePassword
+     */
+    @Param(canBlank = false, regex = "^[a-z0-9_A-Z]{6,12}$")
+    public String getSurePassword()
+    {
+        return surePassword;
+    }
+    
+    /**
+     * @param 对surePassword进行赋值
+     */
+    public void setSurePassword(String surePassword)
+    {
+        this.surePassword = surePassword;
     }
     
     /** 

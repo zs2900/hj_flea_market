@@ -48,6 +48,6 @@ public interface RegistService
      * @return 注册账号响应实体
      * @see [类、类#方法、类#成员]
      */
-    UserRegistResp registAcount(UserRegistReq registReq)
+    UserRegistResp registAcount(UserRegistReq registReq, HttpSession session)
         throws InnerException;
 }

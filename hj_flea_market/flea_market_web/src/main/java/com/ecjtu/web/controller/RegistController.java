@@ -51,9 +51,9 @@ public class RegistController
     }
     
     @RequestMapping(value = "/regist", method = RequestMethod.POST)
-    public UserRegistResp registAccount(@RequestBody UserRegistReq userRegistReq)
+    public UserRegistResp registAccount(@RequestBody UserRegistReq userRegistReq, HttpSession session)
         throws InnerException
     {
-        return registServcie.registAcount(userRegistReq);
+        return registServcie.registAcount(userRegistReq, session);
     }
 }

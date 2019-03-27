@@ -72,8 +72,16 @@ public class FavoritesServiceImpl implements FavoritesService
             response.setRetMsg("没有登录是无法收藏的呦！");
             return response;
         }
+        
         Goods goods = goodsMapper.getGoodsById(req.getgId());
-        if (goods.getuId() == user.getuId())
+        //判断是否为空
+        if (goods == null)
+        {
+            return new BaseResponse(ResultCode.DATA_NOT_EXIST.getResultCode(),
+                ResultCode.DATA_NOT_EXIST.getResultMsg());
+        }
+        //判断是否是自己的商品
+        if (goods.getuId().equals(user.getuId()))
         {
             BaseResponse response = new BaseResponse();
             response.setRetCode(ResultCode.INVALID_PARAM.getResultCode());
@@ -86,10 +94,8 @@ public class FavoritesServiceImpl implements FavoritesService
         //是否删除：1为删除，0为不删除
         favorites.setfIsDelete(0);
         favoritesMappper.addToFavorites(favorites);
-        BaseResponse resp = new BaseResponse();
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
-        return resp;
+        
+        return new BaseResponse();
     }
     
     /** 

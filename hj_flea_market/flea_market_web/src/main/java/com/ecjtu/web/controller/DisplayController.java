@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecjtu.common.exception.InnerException;
+import com.ecjtu.common.validator.annotations.AOPLogAnnotation;
 import com.ecjtu.web.controller.req.SelectDisplayReq;
 import com.ecjtu.web.controller.resp.SelectDisplayResp;
 import com.ecjtu.web.service.DisplayService;
@@ -30,6 +31,7 @@ import com.ecjtu.web.service.DisplayService;
  * @see  [相关类/方法]
  * @since  [产品/模块版本]
  */
+@AOPLogAnnotation
 @RestController
 public class DisplayController
 {

@@ -90,10 +90,10 @@
 		join type t
 		on g.g_type = t.t_code
 		where 1 = 1
-		<if test="gName != null">and g.g_name = #{gName,jdbcType=VARCHAR}</if>
+		<if test="gName != null and gName != ''">and g.g_name = #{gName,jdbcType=VARCHAR}</if>
 		<if test="gId != null">and g.g_id = #{gId,jdbcType=INTEGER}</if>
 		<if test="gType != null">and g.g_type = #{gType,jdbcType=INTEGER}</if>
-		<if test="gAddress != null">and u.u_address = #{gAddress,jdbcType=VARCHAR}</if>
+		<if test="gAddress != null and gAddress != ''">and u.u_address = #{gAddress,jdbcType=VARCHAR}</if>
 		<if test="gState != null">and g.g_state = #{gState,jdbcType=INTEGER}</if>
 	</select>
 
@@ -158,30 +158,30 @@
 		into 
 		goods
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-			<if test="gId != null and gId != ''">g_id,</if>
+			<if test="gId != null">g_id,</if>
 			<if test="gName != null and gName != ''">g_name,</if>
-			<if test="gType != null and gType != ''">g_type,</if>
-			<if test="gPrice != null and gPrice != ''">g_price,</if>
+			<if test="gType != null">g_type,</if>
+			<if test="gPrice != null">g_price,</if>
 			<if test="gUpdateTime == null">g_updatetime,</if>
 			<if test="gDescription != null and gDescription != ''">g_description,</if>
-			<if test="gNumber != null and gNumber != ''">g_number,</if>
+			<if test="gNumber != null">g_number,</if>
 			<if test="gAddress != null and gAddress != ''">g_address,</if>
 			<if test="gState != null">g_state,</if>
 			<if test="gImage != null and gImage != ''">g_image,</if>
 			<if test="uId != null and uId != ''">u_id,</if>
 		</trim>
 		<trim prefix="values (" suffix = ")" suffixOverrides=",">
-			<if test="gId != null and gId != ''">#{gId,jdbcType=INTEGER},</if>
+			<if test="gId != null">#{gId,jdbcType=INTEGER},</if>
 			<if test="gName != null and gName != ''">#{gName,jdbcType=VARCHAR},</if>
-			<if test="gType != null and gType != ''">#{gType,jdbcType=INTEGER},</if>
-			<if test="gPrice != null and gPrice != ''">#{gPrice,jdbcType=DOUBLE},</if>
+			<if test="gType != null">#{gType,jdbcType=INTEGER},</if>
+			<if test="gPrice != null">#{gPrice,jdbcType=DOUBLE},</if>
 			<if test="gUpdateTime == null">sysdate(),</if>
 			<if test="gDescription != null and gDescription != ''">#{gDescription,jdbcType=LONGVARCHAR},</if>
-			<if test="gNumber != null and gNumber != ''">#{gNumber,jdbcType=INTEGER},</if>
+			<if test="gNumber != null">#{gNumber,jdbcType=INTEGER},</if>
 			<if test="gAddress != null and gAddress != ''">#{gAddress, jdbcType=VARCHAR}</if>
 			<if test="gState != null">#{gState,jdbcType=INTEGER},</if>
 			<if test="gImage != null and gImage != ''">#{gImage,jdbcType=VARCHAR},</if>
-			<if test="uId != null and uId != ''">#{uId,jdbcType=INTEGER},</if>
+			<if test="uId != null">#{uId,jdbcType=INTEGER},</if>
 		</trim>
 	</insert>
 	
@@ -220,15 +220,15 @@
 		goods
 		<set>
 			<if test="gName != null and gName != ''">g_name = #{gName, jdbcType=VARCHAR},</if>
-			<if test="gType != null and gType != ''">g_type = #{gType, jdbcType=INTEGER},</if>
-			<if test="gPrice != null and gPrice != ''">g_price = #{gPrice, jdbcType=DOUBLE},</if>
+			<if test="gType != null">g_type = #{gType, jdbcType=INTEGER},</if>
+			<if test="gPrice != null">g_price = #{gPrice, jdbcType=DOUBLE},</if>
 			<if test="gUpdateTime != null">g_updatetime = sysdate(),</if>
 			<if test="gDescription != null and gDescription != ''">g_description = #{gDescription, jdbcType=LONGVARCHAR},</if>
-			<if test="gNumber != null and gNumber != ''">g_number = #{gNumber, jdbcType=INTEGER},</if>
+			<if test="gNumber != null">g_number = #{gNumber, jdbcType=INTEGER},</if>
 			<if test="gAddress != null and gAddress != ''">g_address = #{gAddress, jdbcType=VARCHAR},</if>
-			<if test="gState != null and gState != ''">g_state = #{gState, jdbcType=INTEGER},</if>
-			<if test="uId != null and uId != ''">u_id = #{uId, jdbcType=INTEGER},</if>
-			<if test="gImage != null and gImage != ''">g_image = #{gImage, jdbcType=INTEGER},</if>
+			<if test="gState != null">g_state = #{gState, jdbcType=INTEGER},</if>
+			<if test="uId != null">u_id = #{uId, jdbcType=INTEGER},</if>
+			<if test="gImage != null and gImage != ''">g_image = #{gImage, jdbcType=VARCHAR},</if>
 		</set>
 		where
 		g_id = #{gId, jdbcType=INTEGER}

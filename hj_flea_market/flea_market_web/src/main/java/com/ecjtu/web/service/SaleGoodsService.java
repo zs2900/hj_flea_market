@@ -89,7 +89,7 @@ public interface SaleGoodsService
         throws InnerException;
     
     /**
-     * 
+     * 获取用户的商品列表
      * <一句话功能简述>
      * <功能详细描述>
      * @param req
@@ -102,7 +102,7 @@ public interface SaleGoodsService
         throws InnerException;
     
     /**
-     * 
+     * 商品信息回显
      * <一句话功能简述>
      * <功能详细描述>
      * @param req
@@ -115,7 +115,7 @@ public interface SaleGoodsService
         throws InnerException;
     
     /**
-     * 
+     * 编辑商品信息
      * <一句话功能简述>
      * <功能详细描述>
      * @param req

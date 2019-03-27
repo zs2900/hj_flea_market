@@ -39,7 +39,10 @@ public enum ResultCode
      * 文件类型不支持
      */
     FILE_TYPE_NOT_SUPPORT(-7, "文件类型不支持", "File type is not supported"),
-    
+    /**
+     * 邮箱验证码错误
+     */
+    EMAIL_CODE_ERROR(-8, "验证码错误", "verification code error"),
     /**
      * 成功
      */

@@ -44,7 +44,7 @@ public class InterfaceServiceLog
      * <功能详细描述>
      * @see [类、类#方法、类#成员]
      */
-    @Pointcut("execution(public * com.ecjtu.flea_market_server.controller.*Controller.*(..))") //两个..代表所有子目录，最后括号里的两个..代表所有参数
+    @Pointcut("execution(public * com.ecjtu.web.controller.*Controller.*(..))") //括号里的两个..代表所有参数
     public void logPointCut()
     {
     }

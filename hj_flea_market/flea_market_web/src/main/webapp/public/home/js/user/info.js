@@ -60,6 +60,7 @@ $(document).ready(function(){
 })
 
 function initUserInfo(){
+	showUserBaseInfo();
 	var data = {};
 	$.ajax({
 		type: "post",
@@ -154,8 +155,6 @@ function initUserSale(sales){
 		if(sales[i].gState == 0){
 			state = "待审核";
 		}else if(sales[i].gState == 1){
-			state = "待上架";
-		}else if(sales[i].gState == 2){
 			state = "已上架";
 		}else if(sales[i].gState == 3){
 			state = "已下架";
@@ -297,7 +296,6 @@ function editSale(obj){
         shadeClose: false, //点击遮罩关闭
         success: function (layero, index) {
         	var gId = $(obj).attr("data-gId");
-        	
         	var data = {};
         	data.gId = gId;
         	$.ajax({
@@ -322,6 +320,7 @@ function editSale(obj){
         	        		ss += '<img src="'+ablum[i].pUrl+'" class="ablumitem">';
         	        	}
         	        	body.find("#album").html(ss);
+        	        	
         			}else {
         				layer.msg(result.retMsg);
         			}

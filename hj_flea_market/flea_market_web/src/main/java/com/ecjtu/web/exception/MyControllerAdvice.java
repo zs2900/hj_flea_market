@@ -23,6 +23,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import com.ecjtu.common.controller.response.BaseResponse;
 import com.ecjtu.common.enums.ResultCode;
 import com.ecjtu.common.exception.InnerException;
+import com.ecjtu.common.exception.ValidateException;
 
 /**
  * 
@@ -71,6 +72,23 @@ public class MyControllerAdvice
     {
         LOGGER.error("服务器内部异常:{}", e.getErrorDesc());
         BaseResponse resp = new BaseResponse(e);
+        
+        return resp;
+    }
+    
+    /**
+     * 
+     * 拦截捕捉自定义异常 InnerException.class
+     * <功能详细描述>
+     * @param e 自定义的服务器内部异常对象
+     * @return 响应实体
+     * @see [类、类#方法、类#成员]
+     */
+    @ExceptionHandler(ValidateException.class)
+    public BaseResponse validatorHandler(ValidateException e)
+    {
+        LOGGER.error("参数校验失败:{}", e.getContent());
+        BaseResponse resp = new BaseResponse(ResultCode.INVALID_PARAM.getResultCode(), e.getContent());
         
         return resp;
     }

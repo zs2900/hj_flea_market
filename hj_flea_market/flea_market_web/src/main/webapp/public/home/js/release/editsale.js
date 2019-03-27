@@ -134,9 +134,9 @@ function submitEditSaleInfo(){
 	    	if(result.retCode == 0){
 	    		var index = parent.layer.getFrameIndex(window.name);
 	    		parent.layer.msg("编辑成功");
-	    		console.log(result.retMsg);
-	    		parent.layer.close(index);
-	    		showUserSale();
+	    		//parent.layer.close(index);
+	    		setTimeout(function(){layer.close(layer.index);}, 1000);
+	            setTimeout(function(){parent.location.reload();}, 1000);
 	    	}else{
 	    		layer.msg(result.retMsg);
 	    	}

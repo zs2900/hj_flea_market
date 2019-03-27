@@ -75,7 +75,12 @@ $(function() {
 			scrollTop : 0
 		}, 1000, 'swing');
 	})
+})
 
+/**
+ * 初始化swiper
+ */
+function initSwiper(){
 	var mySwiper = new Swiper('.swiper-container', {
 		loop : true,
 		pagination : '.swiper-pagination',
@@ -86,24 +91,24 @@ $(function() {
 		autoplay : 3000,
 		speed : 1000,
 		autoplayDisableOnInteraction : false,
-		lazyLoading : false,
+		observer:true,//修改swiper自己或子元素时，自动初始化swiper
+	    observeParents:true,//修改swiper的父元素时，自动初始化swiper
+		lazyLoading : true,
 		lazyLoadingOnTransitionStart : true,
 		lazyLoadingInPrevNextAmount : 2,
 		lazyLoadingInPrevNext : true,
 	});
-	$("img.lazyload").show().lazyload({
+	$("img .lazyload").show().lazyload({
 		threshold : 100,
 		placeholder : "public/images/icon/small_loading_default.png",
 		effect : "fadeIn",
 		effectspeed : 500,
 		failure_limit : 10,
 	});
-})
-
+}
 /**
  * 初始化商品列表
  */
-
 function initSales(){
 	var param = {};
 	findGoods(param);
@@ -231,6 +236,7 @@ function initDisplay(){
 					   + '<div class="swiper-lazy-preloader"></div></div>';
 				});
 				$(".swiper-wrapper").html(ss);
+				initSwiper();
 			}else {
 				layer.msg(result.retMsg, {icon : 5});
 			}

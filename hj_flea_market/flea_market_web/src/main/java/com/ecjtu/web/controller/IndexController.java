@@ -46,7 +46,7 @@ public class IndexController
         return "login";
     }
     
-    @RequestMapping(value = "registPage", method = RequestMethod.GET)
+    @RequestMapping(value = "registerPage", method = RequestMethod.GET)
     public String regist()
     {
         return "register";

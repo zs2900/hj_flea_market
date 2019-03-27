@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Base64Utils;
 
@@ -58,6 +59,9 @@ public class UserServiceImpl implements UserService
     @Autowired
     private UserMapper userMapper;
     
+    @Value("${user.head.image}")
+    private String headPic;
+    
     @Override
     public UserLoginResp userLogin(UserLoginReq req, HttpSession session)
         throws InnerException
@@ -84,15 +88,13 @@ public class UserServiceImpl implements UserService
             userLoginResp.setRetCode(ResultCode.LOGIN_FILED.getResultCode());
             userLoginResp.setRetMsg(ResultCode.LOGIN_FILED.getResultMsg());
         }
-        else if (!MD5Util.getSaltverifyMD5(user.getuPassword(), MD5Util.getSaltMD5(req.getUserPWD())))
+        else if (!MD5Util.getSaltverifyMD5(req.getUserPWD(), user.getuPassword()))
         {
             userLoginResp.setRetCode(ResultCode.LOGIN_FILED.getResultCode());
             userLoginResp.setRetMsg(ResultCode.LOGIN_FILED.getResultMsg());
         }
         else
         {
-            userLoginResp.setRetCode(ResultCode.SUCCESS.getResultCode());
-            userLoginResp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
             userLoginResp.setuId(user.getuId());
             userLoginResp.setuName(user.getuName());
             session.setAttribute("userAccount", user);
@@ -109,9 +111,7 @@ public class UserServiceImpl implements UserService
         if (user != null)
         {
             userLoginStateResp = new UserLoginStateResp();
-            userLoginStateResp.setHeadPic("uploads/heads/default1.png");
-            userLoginStateResp.setRetCode(ResultCode.SUCCESS.getResultCode());
-            userLoginStateResp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
+            userLoginStateResp.setHeadPic(user.getuHeadPic() == null ? headPic : user.getuHeadPic());
             userLoginStateResp.setuName(user.getuName());
         }
         else
@@ -181,8 +181,6 @@ public class UserServiceImpl implements UserService
         req.getUser().setuId(user.getuId());
         userMapper.updateUserInfo(req.getUser());
         UpdateuserInfoResp resp = new UpdateuserInfoResp();
-        resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-        resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
         
         return resp;
     }
@@ -211,7 +209,6 @@ public class UserServiceImpl implements UserService
         }
         
         LOGGER.info("imageFile : {}", req.getImage());
-        BaseResponse resp = null;
         if ("data:image/png".equals(req.getImage().split(";")[0]))
         {
             // 去掉base64编码的头部 如："data:image/png;base64," 如果不去，转换的图片不可以查看  
@@ -237,17 +234,16 @@ public class UserServiceImpl implements UserService
             user2.setuId(user.getuId());
             user2.setuHeadPic(filePath.substring(filePath.lastIndexOf("uploads")) + fileName);
             userMapper.updateUserInfo(user2);
-            resp = new BaseResponse();
-            resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-            resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
+            return new BaseResponse();
         }
         else
         {
-            resp = new BaseResponse();
+            BaseResponse resp = new BaseResponse();
             resp.setRetCode(ResultCode.FILE_TYPE_NOT_SUPPORT.getResultCode());
             resp.setRetMsg(ResultCode.FILE_TYPE_NOT_SUPPORT.getResultMsg());
+            return resp;
         }
-        return resp;
+        
     }
     
 }

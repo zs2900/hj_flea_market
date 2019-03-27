@@ -15,10 +15,10 @@
     <meta name="keywords" content="校园二手,校园二手市场,大学二手,大学二手市场,大学生二手,大学二手网站,校园二手网站,校园二手app,桂林二手,桂林校园二手">
     <meta name="description" content="柚子校园网是由柚子校园团队开发的一个高校校园综合性的二手交易平台，校园二手网、大学生二手市场、大学生二手网，覆盖多所大学的大学生。涵盖二手手机、二手自行车、二手电动车、二手教材、二手书、二手电脑、二手数码产品等校园二手信息，满足大学生校园内的二手交易、二手求购的需求。买卖二手，尽在柚子校园">
     <link rel="shortcut icon" href="public/images/icon/favicon.ico" type="image/x-icon"/>
-    <link href="public/plugins/hplus/css/bootstrap.min.css~v=3.3.6.css" rel="stylesheet">
-    <link href="public/plugins/hplus/css/font-awesome.min.css~v=4.4.0.css" rel="stylesheet">
+    <link href="public/plugins/hplus/css/bootstrap.min.css" rel="stylesheet">
+    <link href = "public/Fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="public/plugins/hplus/css/animate.css" rel="stylesheet">
-    <link href="public/plugins/hplus/css/style.css~v=4.1.0.css" rel="stylesheet">
+    <link href="public/plugins/hplus/css/style.css" rel="stylesheet">
     <link href="public/public/pace-theme-flash.css" rel="stylesheet">
     <link href="public/home/css/public/common.css" rel="stylesheet">
     <script type="text/javascript">var numberRock = 1627</script>
@@ -49,22 +49,24 @@
             <div class="col-sm-5">
                 <form method="post" id="js-form" action="/logreg/register">
                     <h4 class="no-margins">注册柚子校园</h4>
-                    <input type="text" name="username" id="username" class="form-control uname" placeholder="用户名" />
-                    <input type="password" name="password" id="password" class="form-control pword m-b" placeholder="密码" />
-                    <input type="text" name="email" id="email" class="form-control email m-b" placeholder="邮箱" />
-                    <div class="form-group  radio-inline" style="padding-left: 0;">
+                    <input type="text" name="userName" id="username" class="form-control uname" placeholder="用户名" />
+                    <input type="password" name="userPassword" id="password" class="form-control pword m-b" placeholder="密码" />
+                    <input type="password" name="surePassword" id="surepassword" class="form-control pword m-b" placeholder="确认密码" />
+                    <input type="text" name="userEmail" id="email" class="form-control email m-b" placeholder="邮箱" />
+                    <!-- <div class="form-group  radio-inline" style="padding-left: 0;">
                         <div class="input-group">
                             <select name="school" data-placeholder="选择学校..." class="chosen-select" style="width:233px;" tabindex="2">
                                 <option checked value="1" hassubinfo="true">桂林电子科技大学</option><option  value="37" hassubinfo="true">华东交通大学</option><option  value="2" hassubinfo="true">广西师范大学</option><option  value="3" hassubinfo="true">桂林理工大学</option><option  value="43" hassubinfo="true">江西理工大学(南昌校区)</option><option  value="10" hassubinfo="true">江西中医药大学</option><option  value="13" hassubinfo="true">江西中医药大学科技学院</option><option  value="20" hassubinfo="true">桂林电子科技大学信息科技学院</option><option  value="14" hassubinfo="true">南昌大学</option><option  value="15" hassubinfo="true">东华理工大学</option><option  value="16" hassubinfo="true">江西师范大学</option><option  value="17" hassubinfo="true">江西科技师范大学</option><option  value="18" hassubinfo="true">南昌师范专科学校</option><option  value="19" hassubinfo="true">南昌大学科技学院</option><option  value="29" hassubinfo="true">广西理工职业技术学院</option><option  value="30" hassubinfo="true">哈尔滨工程大学</option><option  value="283" hassubinfo="true">广东岭南职业技术学院</option><option  value="4" hassubinfo="true">桂林航天工业学院</option><option  value="5" hassubinfo="true">桂林理工大学博文管理学院</option><option  value="6" hassubinfo="true">广西师范大学漓江学院</option><option  value="7" hassubinfo="true">桂林医学院</option><option  value="8" hassubinfo="true">桂林旅游学院</option><option  value="9" hassubinfo="true">桂林师范高等专科学校</option><option  value="291" hassubinfo="true">成都理工大学工程技术学院</option><option  value="36" hassubinfo="true">陕西工业职业技术学院</option><option  value="293" hassubinfo="true">山东药品食品职业学院</option><option  value="295" hassubinfo="true">西安文理学院</option><option  value="298" hassubinfo="true">中南大学</option><option  value="52" hassubinfo="true">青岛港湾职业技术学院</option><option  value="54" hassubinfo="true">华侨大学</option><option  value="76" hassubinfo="true">福建农林大学东方学院</option><option  value="79" hassubinfo="true">四川交通职业技术学院</option><option  value="93" hassubinfo="true">天津理工大学</option><option  value="355" hassubinfo="true">梧州学院</option><option  value="100" hassubinfo="true">江西工程学院</option><option  value="102" hassubinfo="true">北京协和医学院</option><option  value="105" hassubinfo="true">宣城职业技术学院</option><option  value="120" hassubinfo="true">青海民族大学</option><option  value="128" hassubinfo="true">南华大学</option><option  value="139" hassubinfo="true">甘肃民族师范学院</option><option  value="57" hassubinfo="true">江西财经大学(蛟桥校区)</option><option  value="73" hassubinfo="true">四川传媒学院</option>                            </select>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="verifycode-box">
-                        <input type="text" name="passcode" id="passcode" class="form-control pword m-b" placeholder="验证码" />
-                        <img id="verifycode" alt="点击更换"  class="passcode" src="home/verify/verifycode"/>
+                        <input type="text" name="userEmailCode" id="passcode" class="form-control pword m-b" placeholder="验证码" />
+                        <!-- <img id="verifycode" alt="点击更换"  class="passcode" src="home/verify/verifycode"/> -->
                     </div>
                     <div class="checkbox i-checks">
-                        <a href="login.html" class="login">登录</a>
-                        <a class="" href="other/foundstep1.html">找回密码</a>
+						<a class="btn btn-primary emailcode" style="margin-top: 0">获取验证码</a>
+                        <!-- <a href="/hj_flea_market/loginPage" class="btn btn-primary login">登录</a> -->
+                        <!-- <a class="" href="other/foundstep1.html">找回密码</a> -->
                     </div>
                     <a id="js-submit" class="btn btn-success btn-block submit_btn">注册</a>
                 </form>
@@ -77,8 +79,8 @@
     </div>
 </body>
 <!-- 全局js -->
-<script src="public/plugins/hplus/js/jquery.min.js~v=2.1.4"></script>
-<script src="public/plugins/hplus/js/bootstrap.min.js~v=3.3.6"></script>
+<script src="public/plugins/hplus/js/jquery.min.js"></script>
+<script src="public/plugins/hplus/js/bootstrap.min.js"></script>
 <script src="public/plugins/hplus/js/plugins/layer/layer.min.js"></script>
 <script src="public/plugins/navslide/jquery.lavalamp.js"></script>
 <script src="public/plugins/hplus/js/plugins/pace/pace.min.js"></script>

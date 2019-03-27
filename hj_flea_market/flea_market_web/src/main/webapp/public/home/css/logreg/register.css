@@ -63,11 +63,12 @@ body {
     margin-left: 15px;
     display: inline-block;
     transition: text-decoration 0.5s;
+    text-decoration: none;
 }
 
-.i-checks a:hover {
+/* .i-checks a:hover {
     text-decoration: underline;
-}
+} */
 
 .chosen-container-single .chosen-single {
     background: #ffffff;
@@ -92,5 +93,8 @@ body {
 
 .login {
     margin-left: 0!important;
+}
+.emailcode {
+	margin-left: 0!important;
 }
 
