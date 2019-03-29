@@ -64,7 +64,7 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
     private PictureMapper pictureMapper;
     
     @Value("${user.head.image}")
-    private String imageRoot;
+    private String headImage;
     
     @Override
     public SelectGoodsNumResp selectGoodsTotal(SelectGoodsNumReq req)
@@ -75,21 +75,13 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         req.setgState(1);
         //查询二手商品数量
         Integer total = goodsMapper.selectGoodsTotal(req);
-        Integer pageSize = total / 24 + 1;
+        Integer pageSize = total / req.getPageSize() == 0 ? total / req.getPageSize() : total / req.getPageSize() + 1;
         SelectGoodsNumResp resp = new SelectGoodsNumResp();
         resp.setGoodsNum(total);
         resp.setPageSize(pageSize);
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public SelectGoodsListResp selectGoodsList(SelectGoodsListReq req)
         throws InnerException
@@ -103,14 +95,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public SelectGoodsDetailResp selectGoodsDetail(SelectGoodsDetailReq req, HttpSession session)
         throws InnerException
@@ -124,7 +108,7 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
             resp.setIsLogin(1);
             if (resp.getuHeadPic() == null)
             {
-                resp.setuHeadPic(imageRoot);
+                resp.setuHeadPic(headImage);
             }
         }
         else
@@ -137,15 +121,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public BaseResponse saleGoods(SaleGoodsReq req, HttpSession session)
         throws InnerException
@@ -162,7 +137,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
             response.setRetMsg(ResultCode.USER_NOT_FIND.getResultMsg());
             return response;
         }
-        
         //保存商品信息
         Goods goods = new Goods();
         goods.setgName(req.getTitle());
@@ -192,15 +166,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         return new BaseResponse();
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public GetUserSaleListResp getUserSaleList(GetUserSaleListReq req, HttpSession session)
         throws InnerException
@@ -228,15 +193,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public GetSaleReturnResp getSaleReturn(GetSaleReturnReq req, HttpSession session)
         throws InnerException
@@ -259,15 +215,6 @@ public class SaleGoodsServiceImpl implements SaleGoodsService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public EditSaleInfoResp editSaleInfo(EditSaleInfoReq req, HttpSession session)
         throws InnerException

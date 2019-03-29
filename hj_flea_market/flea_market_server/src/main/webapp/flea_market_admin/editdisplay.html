@@ -102,14 +102,14 @@
 		      });
 		    }
 		    ,done: function(res){
-		      //如果上传失败
-		      if(res.code != 0){
-		        return layer.msg('上传失败',{icon:5});
-		      }
 		      //上传成功
 		      if(res.retCode == 0){
 		    	  $("#imageUrl").attr("value", res.imagePath);
+		    	  return layer.msg('上传成功',{icon:1});
+		      }else {
+		    	  return layer.msg('上传失败',{icon:5});
 		      }
+		      
 		    }
 		    ,error: function(){
 		      //演示失败状态，并实现重传

@@ -44,7 +44,7 @@
       		<if test="uSex != null">u_age,</if>
       		<if test="uAge != null">u_sex,</if>
       		<if test="uAddress != null">u_address,</if>
-      		<if test="uRegistrationTime != null">u_registration_time,</if>
+      		<if test="uRegistrationTime == null">u_registration_time,</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="uId != null">#{uId,jdbcType=INTEGER},</if>
@@ -54,7 +54,7 @@
 			<if test="uSex != null">#{uSex,jdbcType=INTEGER},</if>
 			<if test="uAge != null">#{uAge,jdbcType=INTEGER},</if>
 			<if test="uAddress != null">#{uAddress,jdbcType=VARCHAR},</if>
-			<if test="uRegistrationTime != null">#{uRegistrationTime,jdbcType=DATE},</if>
+			<if test="uRegistrationTime == null">sysdate(),</if>
 		</trim>
 	</insert>
 	
@@ -68,7 +68,7 @@
       		<if test="uSex != null">u_age = #{uSex,jdbcType=INTEGER},</if>
       		<if test="uAge != null">u_sex = #{uAge,jdbcType=INTEGER},</if>
       		<if test="uAddress != null">u_address = #{uAddress,jdbcType=VARCHAR},</if>
-      		<if test="uRegistrationTime != null">u_registration_time = #{uRegistrationTime,jdbcType=Date},</if>
+      		<if test="uRegistrationTime != null">u_registration_time = #{uRegistrationTime,jdbcType=TIMESTAMP},</if>
       		<if test="uQQNumber != null">u_qq_number = #{uQQNumber,jdbcType=VARCHAR},</if>
       		<if test="uPhoneNum != null">u_phone_number = #{uPhoneNum,jdbcType=VARCHAR},</if>
       		<if test="uSchool != null">u_school = #{uSchool,jdbcType=VARCHAR},</if>

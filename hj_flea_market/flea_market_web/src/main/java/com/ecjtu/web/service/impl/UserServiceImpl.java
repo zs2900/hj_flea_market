@@ -11,7 +11,6 @@
 package com.ecjtu.web.service.impl;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 import javax.servlet.http.HttpSession;
@@ -68,7 +67,6 @@ public class UserServiceImpl implements UserService
     {
         //参数校验
         Validator.getInstance().validate(UserLoginReq.class, req);
-        
         //校验图片验证码
         String kaptchaExpected = (String)session.getAttribute("imageCode");
         LOGGER.info("kaptchaExpected : {}", kaptchaExpected);
@@ -123,15 +121,6 @@ public class UserServiceImpl implements UserService
         return userLoginStateResp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public GetuserInfoResp getuserInfo(GetUserInfoReq req, HttpSession session)
         throws InnerException
@@ -154,15 +143,6 @@ public class UserServiceImpl implements UserService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public UpdateuserInfoResp updateUserinfo(UpdateUserInfoReq req, HttpSession session)
         throws InnerException
@@ -185,16 +165,6 @@ public class UserServiceImpl implements UserService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @throws FileNotFoundException 
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public BaseResponse updateUserHeadPic(UpdateHeadPicReq req, HttpSession session)
         throws Exception

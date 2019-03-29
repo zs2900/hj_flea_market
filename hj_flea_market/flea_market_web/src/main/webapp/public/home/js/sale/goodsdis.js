@@ -69,14 +69,12 @@ function showGoodsDetail(obj){
 		$(".info .contact1 .qq").next().html('<span>'+ obj.uQQNumber +'</span>');
 		$(".info .contact2 .tel").next().html('<span>'+ obj.uPhoneNumber +'</span>');
 		$("#commoncontent").attr("disabled", false);
-		//$("#commonbtn").attr("disabled",false);
 		$("#commoncontent").attr("value", "");
 		$("#commonbtn").attr("uId",obj.uId);
 	}else{
 		$(".info .contact1 .qq").next().html('<a target="_blank" href="/hj_flea_market/login"><span class="needlogin">点击登录后可查看</span></a>');
 		$(".info .contact2 .tel").next().html('<a target="_blank" href="/hj_flea_market/login"><span class="needlogin">点击登录后可查看</span></a>');
 		$("#commoncontent").attr("disabled", true);
-		//$("#commonbtn").attr("disabled",true);
 		$("#commoncontent").attr("value", "您要登录之后才可以评论哦！");
 	}
 	$(".info .school .text").text(obj.uSchool);
@@ -170,26 +168,12 @@ function initmessageList(obj){
  * @return 静态添加回复的条目
  * obj.attr('isLogin')==""不存在用户id，意味着没有登录
  */
-function saleReply(obj){
-    var obj = $(obj);
-    if(obj.attr('isLogin')==""){
-        layer.msg('同学，请您登录之后再评论', {icon: 0});
-        return ;
-    }
-    var username = $('#commonbtn').attr('my-name');
-    var replyTo = obj.attr('to-name');
-    $('#commonbtn').attr('to-id',obj.attr('to-id'));
-    $('#commonbtn').attr('to-name',obj.attr('to-name'));
-    $('#commonbtn').attr('pid',obj.attr('pid'));
-    var preFix = username+"回复 "+replyTo+" ：";
-    $('#reply-to-tips').text(preFix);
-}
 
 function saleReplyPost(){
     var loading = layer.load(0,{time: 3*1000});
     var gId = $(".info .gId").attr("value");
     var uId = $("#commonbtn").attr("uId");
-    if(uId == ""){
+    if(!uId){
     	layer.msg('同学，请您登录之后再评论', {icon: 0});
         return ;
     }
@@ -224,17 +208,6 @@ function saleReplyPost(){
 }
 
 /**
- * 获取回复的内容
- * 获得textarea的内容，去掉估计的前缀内容
- * 去掉的是如“张三 回复 李四：”这段前缀
- * @return string
- */
-function getReplyStr(content, preFix){
-    length = preFix.length;
-    return content.substr(length);
-}
-
-/**
  * 在评论的页面，单击“展开更多精彩评论”按钮
  * 展开其余的隐藏起来的评论，隐藏评论的原因是
  * 如果有太多评论的话，页面会拉的很长，更多的
@@ -257,7 +230,6 @@ function spreadAppraise(obj){
  */
 function saleFavor(obj){
     var obj = $(obj);
-    //var isLogin = obj.attr('isLogin');
     var uId = $("#commonbtn").attr("uId");
     if(!uId){
         layer.msg('没登录是无法收藏的哟！', {icon: 0});
@@ -282,35 +254,4 @@ function saleFavor(obj){
             }
         }
     });
-}
-
-/**
- * 在二手模块对一个物品进行举报
- * @param int id 物品的id
- * @return false-提示失败，true-提示成功
- */
-function saleReport(id){
-    var loading = layer.load(0,{time: 3*1000});
-    $.ajax({
-        url: '/home/sale/report',    //请求的url地址
-        data: {'id':id},    //参数值
-        success: function(data) {
-            layer.close(loading);
-            if(data.status==true){
-                layer.msg('举报成功，我们会迅速处理的！', {icon: 1});
-            }
-            else{
-                layer.msg('举报失败，请重试或者联系管理员处理！', {icon: 0});
-            }
-        }
-    })
-}
-
-/**
- * 求二手关键字搜索
- */
-function toSearch(){
-    var keyword = $("#serachWord").val();
-    var url = "/sale/querySale/keyword/" + keyword;
-    location.href = url ;
 }

@@ -51,13 +51,6 @@ public class FavoritesServiceImpl implements FavoritesService
     @Autowired
     private GoodsMapper goodsMapper;
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public BaseResponse addToFavorites(AddToFavoritesReq req, HttpSession session)
         throws InnerException
@@ -98,15 +91,6 @@ public class FavoritesServiceImpl implements FavoritesService
         return new BaseResponse();
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public GetUserFavoritesResp getUserFavorites(GetUserFavoritesReq req, HttpSession session)
         throws InnerException
@@ -120,7 +104,6 @@ public class FavoritesServiceImpl implements FavoritesService
             resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
             return resp;
         }
-        
         //获取收藏夹总数
         Integer total = favoritesMappper.getUserFavoritesNum(user.getuId());
         //获取收藏夹列表
@@ -135,15 +118,6 @@ public class FavoritesServiceImpl implements FavoritesService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @param session
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public BaseResponse deleteFavorites(DeleteFavoritesReq req, HttpSession session)
         throws InnerException
@@ -157,7 +131,6 @@ public class FavoritesServiceImpl implements FavoritesService
             resp.setRetMsg(ResultCode.USER_NOT_FIND.getResultMsg());
             return resp;
         }
-        
         //删除收藏
         favoritesMappper.deleteFavorites(req.getfId());
         BaseResponse resp = new BaseResponse();

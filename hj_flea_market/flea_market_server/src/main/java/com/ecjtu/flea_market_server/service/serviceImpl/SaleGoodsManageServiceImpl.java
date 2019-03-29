@@ -46,20 +46,11 @@ public class SaleGoodsManageServiceImpl implements SaleGoodsManageService
     @Value("${file.service.uri}")
     private String imageRoot;
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public SaleGoodsManageResp getSaleGoodsList(SaleGoodsManageReq req)
         throws InnerException
     {
         Validator.getInstance().validate(SaleGoodsManageReq.class, req);
-        
         List<SelectGoodsAdmin> list = saleGoodsMapper.SelectGoodsByParam(req);
         int total = saleGoodsMapper.SelectGoodsByParamNum(req);
         SaleGoodsManageResp resp = new SaleGoodsManageResp();
@@ -69,20 +60,11 @@ public class SaleGoodsManageServiceImpl implements SaleGoodsManageService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public SaleGoodsInfoResp getSaleGoodsInfo(SaleGoodsInfoReq req)
         throws InnerException
     {
         Validator.getInstance().validate(SaleGoodsInfoReq.class, req);
-        
         SelectGoodsAdmin goods = saleGoodsMapper.selectGoodsInfo(req);
         SaleGoodsInfoResp resp = new SaleGoodsInfoResp();
         resp.setGoodsInfo(goods);
@@ -91,20 +73,11 @@ public class SaleGoodsManageServiceImpl implements SaleGoodsManageService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public ExamineGoodsResp examineGoods(ExamineGoodsReq req)
         throws InnerException
     {
         Validator.getInstance().validate(ExamineGoodsReq.class, req);
-        
         saleGoodsMapper.ExamimeGoods(req);
         
         return new ExamineGoodsResp();

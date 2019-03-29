@@ -51,6 +51,7 @@
 		<result column="u_phone_number" jdbcType="VARCHAR" property="uPhoneNumber" />
 		<result column="u_qq_number" jdbcType="VARCHAR" property="uQQNumber" />
 		<result column="u_school" jdbcType="VARCHAR" property="uSchool" />
+		<result column="u_head_pic" jdbcType="VARCHAR" property="uHeadPic"/>
 		<collection property="pictures" ofType="com.ecjtu.common.model.Picture">
 			<id column="p_id" jdbcType="INTEGER" property="pId" />
 			<result column="p_code" jdbcType="VARCHAR" property="pCode" />
@@ -75,8 +76,7 @@
 	<sql id="goodsDetail">
 		g.g_id, g.g_name, g.g_type, g.g_price, g.g_updatetime,
 		g.g_description, g.g_number, g.g_address, g.g_state, g.g_image,
-		u.u_id,
-		u.u_name, u.u_address, u.u_phone_number, u.u_qq_number, u.u_school,
+		u.u_id,u.u_name, u.u_address, u.u_phone_number, u.u_qq_number, u.u_school, u.u_head_pic,
 		p.p_id, p.p_url, p.g_id, p.p_updatetime
 	</sql>
 

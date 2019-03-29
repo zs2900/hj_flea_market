@@ -170,9 +170,9 @@ function PageCallback(data){
 					ss += '<div class="class-item"><div class="class-bg-layer"></div>';
 					ss += '<div class="class-item-bg"> <a target="_blank" href="/hj_flea_market/goods?gId='+ obj.gId +'" class="class-img">';
 					ss += '<img class="img-responsive lazyload" src="' + obj.pictures[0].pUrl + '" alt="'+ obj.gName +'" data-original="uploads/salebuy/2019-03-07/5c80d801426ca.png"> </a>';
-					ss += '<div class="pricehot clearfix"> <span class="price">￥&nbsp;<span>'+ obj.gPrice +'</span></span> <span class="hot">点击数&nbsp;<span>'+ obj.clickNum +'</span></span> </div>';
+					ss += '<div class="pricehot clearfix"> <span class="price">￥&nbsp;<span>'+ obj.gPrice +'</span></span></span> </div>';
 					ss += '<a target="_blank" href="/hj_flea_market/goods?gId='+ obj.gId +'" class="title"> '+ obj.gName +' </a>';
-					ss += '<div class="some  clearfix"> <span class="school">广西师范大学</span> <span class="renzheng">未认证 </span>';
+					ss += '<div class="some  clearfix">';
 					ss += '</div> </div> </div> </li>';
 					$(".goodsbox").append(ss);
 				}
@@ -232,7 +232,7 @@ function initDisplay(){
 				var ss = "";
 				$.each(result.displays, function(i,obj){
 					ss += '<div class="swiper-slide"><a target="_blank" href="/hj_flea_market/goods?gId='+obj.gId+'">'
-					   + '<img src="'+result.imageRoot + obj.dImg+'" class="swiper-lazy"></a>'
+					   + '<img src="'+result.imageRoot + obj.dImg+'" class="swiper-lazy" height="350px" width="1500px"></a>'
 					   + '<div class="swiper-lazy-preloader"></div></div>';
 				});
 				$(".swiper-wrapper").html(ss);

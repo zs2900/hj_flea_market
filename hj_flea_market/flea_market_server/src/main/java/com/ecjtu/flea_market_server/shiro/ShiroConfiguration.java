@@ -13,10 +13,12 @@ package com.ecjtu.flea_market_server.shiro;
 import java.util.LinkedHashMap;
 
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -63,6 +65,7 @@ public class ShiroConfiguration
         System.err.println("--------------shiro已经加载----------------");
         DefaultWebSecurityManager manager = new DefaultWebSecurityManager();
         manager.setRealm(authRealm);
+        manager.setSessionManager(sessionManager());
         return manager;
     }
     
@@ -80,6 +83,12 @@ public class ShiroConfiguration
     public CredentialsMatcher credentialsMatcher()
     {
         return new CredentialsMatcher();
+    }
+    
+    @Bean(name = "sessionIdGenerator")
+    public JavaUuidSessionIdGenerator sessionIdGenerator()
+    {
+        return new JavaUuidSessionIdGenerator();
     }
     
     @Bean
@@ -103,5 +112,17 @@ public class ShiroConfiguration
         AuthorizationAttributeSourceAdvisor advisor = new AuthorizationAttributeSourceAdvisor();
         advisor.setSecurityManager(manager);
         return advisor;
+    }
+    
+    @Bean(name = "sessionManager")
+    public DefaultWebSessionManager sessionManager()
+    {
+        DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
+        sessionManager.setGlobalSessionTimeout(24 * 60 * 60 * 1000);
+        sessionManager.setDeleteInvalidSessions(true);
+        sessionManager.setSessionValidationSchedulerEnabled(true);
+        sessionManager.setSessionIdUrlRewritingEnabled(false);
+        sessionManager.getSessionIdCookie().setName("WEBSID");
+        return sessionManager;
     }
 }

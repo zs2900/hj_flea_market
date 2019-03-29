@@ -38,7 +38,6 @@ public abstract class FileUtil
     public static Map<String, Object> saveFile(InputStream in, String filePath, String fileName, String path)
         throws IOException
     {
-        
         //将流转成临时存储文件，拿到属性存储在map里面然后删除临时文件。
         Map<String, Object> map = new HashMap<String, Object>();
         FileOutputStream fos = null;

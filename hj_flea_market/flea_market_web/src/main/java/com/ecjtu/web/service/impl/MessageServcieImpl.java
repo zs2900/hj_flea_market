@@ -43,14 +43,6 @@ public class MessageServcieImpl implements MessageService
     @Autowired
     private MessageMapper messageMapper;
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public SelectGoodsMessageResp selectGoodsmessages(SelectGoodsMessageReq req)
         throws InnerException
@@ -67,14 +59,6 @@ public class MessageServcieImpl implements MessageService
         return resp;
     }
     
-    /** 
-     * <一句话功能简述>
-     * <功能详细描述>
-     * @param req
-     * @return
-     * @throws InnerException
-     * @see [类、类#方法、类#成员]
-     */
     @Override
     public SendMessageResp saveMessage(SendMessageReq req, HttpSession session)
         throws InnerException
@@ -90,7 +74,6 @@ public class MessageServcieImpl implements MessageService
         }
         
         messageMapper.saveMessage(req);
-        
         SendMessageResp resp = new SendMessageResp();
         resp.setRetCode(ResultCode.SUCCESS.getResultCode());
         resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());

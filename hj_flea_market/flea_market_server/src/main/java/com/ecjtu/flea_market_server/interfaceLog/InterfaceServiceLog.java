@@ -35,7 +35,6 @@ import com.google.common.collect.Lists;
 @Component
 public class InterfaceServiceLog
 {
-    
     private static final Logger LOGGER = LoggerFactory.getLogger("Interface.Service.Log");
     
     /**

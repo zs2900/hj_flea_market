@@ -120,8 +120,8 @@ public class FileUtil
     
     /**
      * 得到上传文件的文件头
-     * @param src
-     * @return
+     * @param src 文件字节数据
+     * @return 文件头
      */
     public static String bytesToHexString(byte[] src)
     {
@@ -145,9 +145,9 @@ public class FileUtil
     
     /**
      * 根据制定文件的文件头判断其文件类型
-     * @param filePaht
-     * @return
-     * @throws Exception 
+     * @param file 文件
+     * @return 文件类型
+     * @throws Exception  异常
      */
     public static String getFileType(File file)
         throws Exception
@@ -186,6 +186,15 @@ public class FileUtil
         return res;
     }
     
+    /**
+     * 获取MultipartFile文件类型
+     * <一句话功能简述>
+     * <功能详细描述>
+     * @param file 文件
+     * @return 文件类型
+     * @throws Exception 异常
+     * @see [类、类#方法、类#成员]
+     */
     public static String getFileTypeM(MultipartFile file)
         throws Exception
     {
@@ -227,9 +236,9 @@ public class FileUtil
      * 判断文件类型是否为图片
      * <一句话功能简述>
      * <功能详细描述>
-     * @param file
-     * @return
-     * @throws Exception
+     * @param file 文件
+     * @return 是否图片
+     * @throws Exception 异常
      * @see [类、类#方法、类#成员]
      */
     public static boolean isPicture(File file)
@@ -248,12 +257,12 @@ public class FileUtil
     }
     
     /**
-     * 
+     * 判断MultipartFile文件类型
      * <一句话功能简述>
      * <功能详细描述>
-     * @param file
-     * @return
-     * @throws Exception 
+     * @param file 文件
+     * @return 是否为图片类型
+     * @throws Exception  异常
      * @see [类、类#方法、类#成员]
      */
     public static boolean isPictureM(MultipartFile file)

@@ -62,8 +62,6 @@ public class ImageUploadController
             ImageUploadResp resp = new ImageUploadResp();
             resp.setSavepath(filePath.substring(filePath.lastIndexOf("uploads")));
             resp.setSavename(fileName);
-            resp.setRetCode(ResultCode.SUCCESS.getResultCode());
-            resp.setRetMsg(ResultCode.SUCCESS.getResultMsg());
             return resp;
         }
         else

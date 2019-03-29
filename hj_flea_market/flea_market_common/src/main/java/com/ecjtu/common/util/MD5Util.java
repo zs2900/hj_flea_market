@@ -104,6 +104,15 @@ public class MD5Util
         return String.valueOf(cs);
     }
     
+    /**
+     * 判断原字符串和加密字符串是否一致
+     * <一句话功能简述>
+     * <功能详细描述>
+     * @param password 原密码
+     * @param md5str 加密密码
+     * @return 是否一致
+     * @see [类、类#方法、类#成员]
+     */
     public static boolean getSaltverifyMD5(String password, String md5str)
     {
         char[] cs1 = new char[32];
